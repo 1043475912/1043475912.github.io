@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="#利用css布局和定时器实现简单的点名器###css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码&amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;   &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;开始&amp;quot; id=&amp;quot;start&amp;quo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-17T14:40:34.528Z">
+<meta property="og:updated_time" content="2019-01-18T04:21:24.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="#利用css布局和定时器实现简单的点名器###css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码&amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;   &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;开始&amp;quot; id=&amp;quot;start&amp;quo">
@@ -79,7 +79,8 @@
         <hr>
 <h2 id="利用css布局和定时器实现简单的点名器"><a href="#利用css布局和定时器实现简单的点名器" class="headerlink" title="#利用css布局和定时器实现简单的点名器"></a>#利用<code>css</code>布局和定时器实现简单的点名器</h2><p>###<code>css</code>布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用<code>div</code>存放.用定时器实现就比较简单了，具体看代码</p>
 <h2 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a><code>html</code>代码</h2><pre><code>&lt;h1&gt;点名器&lt;/h1&gt;
-</code></pre><p>  <code>&lt;input type=&quot;button&quot; value=&quot;开始&quot; id=&quot;start&quot;&gt;</code><br>  <code>&lt;input type=&quot;button&quot; value=&quot;结束&quot; id=&quot;end&quot;&gt;</code></p>
+</code></pre><p>  <code>&lt;input type=&quot;button&quot; value=&quot;开始&quot; id=&quot;start&quot;&gt;</code></p>
+<p>  <code>&lt;input type=&quot;button&quot; value=&quot;结束&quot; id=&quot;end&quot;&gt;</code></p>
 <pre><code> &lt;div class=&quot;btn&quot;&gt;
        &lt;div&gt;1&lt;/div&gt;
        &lt;div&gt;2&lt;/div&gt;
@@ -101,14 +102,17 @@
     margin:0px;
     padding: 0px;
 }
+
 .btn{
     width:100%;
 }
+
   input{
     font-size: larger;
     margin-left:47.5%;
     margin-top: 10px;
 }
+
 .btn div{
     width:100px;
     height:30px;
@@ -119,17 +123,32 @@
     text-align: center;
 
 }
+
 h1 {
     color:rgb(201, 18, 79) ;
     text-align:center
 }
 </code></pre><p>###颜色和样式可自行设置，这里本来想用伸缩盒子做一下的，后来想了一下，完全没必要，只要将存放名字的大盒子<code>div</code>的宽度设置为页面宽度就行了，无论我们怎么缩放页面，<code>div</code>盒子都会跟页面宽度一致。</p>
-<p>##<code>js</code>代码<br>      var flag=true;//设置节流阀<br>      document.getElementById(‘start’).onclick=function(){<br>          if(flag==true){<br>            flag=false;//关闭节流阀，防止多次点击触发多个定时器<br>            timeId=setInterval(function(){//定时器不能定义为局部变量，否则不能被clearInterval读取到，也不能被清除<br>            var c=parseInt(Math.random()*15)//通过随机数方法随机点名<br>            document.getElementsByClassName(‘btn’)[0].children[c].style.backgroundColor=’red’;<br>            for(i=0;i&lt;document.getElementsByClassName(‘btn’)[0].children.length;i++){<br>                if(i!=c){<br>                    document.getElementsByClassName(‘btn’)[0].children[i].style.backgroundColor=’green’;<br>                }</p>
-<pre><code>      } //其他兄弟元素设置为原来的颜色，这里用Jquery的siblings方法会更方便一些
+<p>##<code>js</code>代码</p>
+<pre><code>var flag=true;//设置节流阀
+
+document.getElementById(&apos;start&apos;).onclick=function(){
+    if(flag==true){
+      flag=false;//关闭节流阀，防止多次点击触发多个定时器
+      timeId=setInterval(function(){//定时器不能定义为局部变量，否则不能被clearInterval读取到，也不能被清除
+      var c=parseInt(Math.random()*15)//通过随机数方法随机点名
+      document.getElementsByClassName(&apos;btn&apos;)[0].children[c].style.backgroundColor=&apos;red&apos;;
+      for(i=0;i&lt;document.getElementsByClassName(&apos;btn&apos;)[0].children.length;i++){
+          if(i!=c){
+              document.getElementsByClassName(&apos;btn&apos;)[0].children[i].style.backgroundColor=&apos;green&apos;;
+          }
+
+      } //其他兄弟元素设置为原来的颜色，这里用Jquery的siblings方法会更方便一些
     },100)
     }
 
 }
+
 document.getElementById(&apos;end&apos;).onclick=function(){
     clearInterval(timeId);
     flag=true//清除定时器后打开节流阀
@@ -139,7 +158,7 @@ document.getElementById(&apos;end&apos;).onclick=function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/点名器/" data-id="cjr0q4o3b0001ioth9ws22how" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/17/点名器/" data-id="cjr1jf2rz0000ukthskvzsxfl" class="article-share-link">Share</a>
       
       
     </footer>
