@@ -5,19 +5,19 @@
   
 
   
-  <title>Hexo</title>
+  <title>利用css布局和定时器实现简单的点名器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="利用css布局和定时器实现简单的点名器css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码&amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;   &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;开始&amp;quot; id=&amp;quot;start&amp;quot;&amp;g">
+  <meta name="description" content="css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码&amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;   &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;开始&amp;quot; id=&amp;quot;start&amp;quot;&amp;gt;   &amp;lt;input type=">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="利用css布局和定时器实现简单的点名器">
 <meta property="og:url" content="http://yoursite.com/2019/01/17/点名器/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="利用css布局和定时器实现简单的点名器css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码&amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;   &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;开始&amp;quot; id=&amp;quot;start&amp;quot;&amp;g">
+<meta property="og:description" content="css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码&amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;   &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;开始&amp;quot; id=&amp;quot;start&amp;quot;&amp;gt;   &amp;lt;input type=">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-18T04:42:47.086Z">
+<meta property="og:updated_time" content="2019-01-18T04:53:33.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="利用css布局和定时器实现简单的点名器css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码&amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;   &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;开始&amp;quot; id=&amp;quot;start&amp;quot;&amp;g">
+<meta name="twitter:title" content="利用css布局和定时器实现简单的点名器">
+<meta name="twitter:description" content="css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码&amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;   &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;开始&amp;quot; id=&amp;quot;start&amp;quot;&amp;gt;   &amp;lt;input type=">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -74,10 +74,19 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      利用css布局和定时器实现简单的点名器
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="利用css布局和定时器实现简单的点名器"><a href="#利用css布局和定时器实现简单的点名器" class="headerlink" title="利用css布局和定时器实现简单的点名器"></a>利用css布局和定时器实现简单的点名器</h2><p><code>css</code>布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用<code>div</code>存放.用定时器实现就比较简单了，具体看代码</p>
+        <p><code>css</code>布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用<code>div</code>存放.用定时器实现就比较简单了，具体看代码</p>
 <h2 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a><code>html</code>代码</h2><pre><code>&lt;h1&gt;点名器&lt;/h1&gt;
 </code></pre><p>  <code>&lt;input type=&quot;button&quot; value=&quot;开始&quot; id=&quot;start&quot;&gt;</code></p>
 <p>  <code>&lt;input type=&quot;button&quot; value=&quot;结束&quot; id=&quot;end&quot;&gt;</code></p>
@@ -155,7 +164,7 @@ document.getElementById(&apos;end&apos;).onclick=function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/点名器/" data-id="cjr1k606b0001jothvong27l5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/17/点名器/" data-id="cjr1kjsav00011othqsxc80dy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -204,7 +213,7 @@ document.getElementById(&apos;end&apos;).onclick=function(){
       <ul>
         
           <li>
-            <a href="/2019/01/17/点名器/">(no title)</a>
+            <a href="/2019/01/17/点名器/">利用css布局和定时器实现简单的点名器</a>
           </li>
         
           <li>
