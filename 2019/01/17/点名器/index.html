@@ -7,17 +7,17 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#利用css布局和定时器实现简单的点名器###css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码123456789101112131415161718192021222324  &amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;&amp;lt;input type=&quot;button&quot; value=&quot;开始&quot;">
+  <meta name="description" content="title:利用css布局和定时器实现简单的点名器###css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码&amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;   &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;开始&amp;quot; id=&amp;quot;star">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/2019/01/17/点名器/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#利用css布局和定时器实现简单的点名器###css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码123456789101112131415161718192021222324  &amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;&amp;lt;input type=&quot;button&quot; value=&quot;开始&quot;">
+<meta property="og:description" content="title:利用css布局和定时器实现简单的点名器###css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码&amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;   &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;开始&amp;quot; id=&amp;quot;star">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-18T04:25:31.078Z">
+<meta property="og:updated_time" content="2019-01-18T04:28:49.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="#利用css布局和定时器实现简单的点名器###css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码123456789101112131415161718192021222324  &amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;&amp;lt;input type=&quot;button&quot; value=&quot;开始&quot;">
+<meta name="twitter:description" content="title:利用css布局和定时器实现简单的点名器###css布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用div存放.用定时器实现就比较简单了，具体看代码 html代码&amp;lt;h1&amp;gt;点名器&amp;lt;/h1&amp;gt;   &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;开始&amp;quot; id=&amp;quot;star">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -77,9 +77,28 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<h2 id="利用css布局和定时器实现简单的点名器"><a href="#利用css布局和定时器实现简单的点名器" class="headerlink" title="#利用css布局和定时器实现简单的点名器"></a>#利用<code>css</code>布局和定时器实现简单的点名器</h2><p>###<code>css</code>布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用<code>div</code>存放.用定时器实现就比较简单了，具体看代码</p>
-<h2 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a><code>html</code>代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  &lt;h1&gt;点名器&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"开始"</span> id=<span class="string">"start"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"结束"</span> id=<span class="string">"end"</span>&gt;</span><br><span class="line"></span><br><span class="line">     &lt;div class=<span class="string">"btn"</span>&gt;</span><br><span class="line">           &lt;div&gt;1&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;2&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;3&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;4&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;5&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;6&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;7&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;8&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;9&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;10&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;11&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;12&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;13&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;14&lt;/div&gt;</span><br><span class="line">           &lt;div&gt;15&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a><code>css</code>代码</h2><pre><code>*{
+<h2 id="title-利用css布局和定时器实现简单的点名器"><a href="#title-利用css布局和定时器实现简单的点名器" class="headerlink" title="title:利用css布局和定时器实现简单的点名器"></a>title:利用<code>css</code>布局和定时器实现简单的点名器</h2><p>###<code>css</code>布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用<code>div</code>存放.用定时器实现就比较简单了，具体看代码</p>
+<h2 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a><code>html</code>代码</h2><pre><code>&lt;h1&gt;点名器&lt;/h1&gt;
+</code></pre><p>  <code>&lt;input type=&quot;button&quot; value=&quot;开始&quot; id=&quot;start&quot;&gt;</code></p>
+<p>  <code>&lt;input type=&quot;button&quot; value=&quot;结束&quot; id=&quot;end&quot;&gt;</code></p>
+<pre><code> &lt;div class=&quot;btn&quot;&gt;
+       &lt;div&gt;1&lt;/div&gt;
+       &lt;div&gt;2&lt;/div&gt;
+       &lt;div&gt;3&lt;/div&gt;
+       &lt;div&gt;4&lt;/div&gt;
+       &lt;div&gt;5&lt;/div&gt;
+       &lt;div&gt;6&lt;/div&gt;
+       &lt;div&gt;7&lt;/div&gt;
+       &lt;div&gt;8&lt;/div&gt;
+       &lt;div&gt;9&lt;/div&gt;
+       &lt;div&gt;10&lt;/div&gt;
+       &lt;div&gt;11&lt;/div&gt;
+       &lt;div&gt;12&lt;/div&gt;
+       &lt;div&gt;13&lt;/div&gt;
+       &lt;div&gt;14&lt;/div&gt;
+       &lt;div&gt;15&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h2 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a><code>css</code>代码</h2><pre><code>*{
     margin:0px;
     padding: 0px;
 }
@@ -139,7 +158,7 @@ document.getElementById(&apos;end&apos;).onclick=function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/点名器/" data-id="cjr1jjw9w0001vgthsgx8008h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/17/点名器/" data-id="cjr1jo71n0001e4tha20kox8i" class="article-share-link">Share</a>
       
       
     </footer>
