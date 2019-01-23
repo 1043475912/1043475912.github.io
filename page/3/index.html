@@ -71,7 +71,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>利用js原生代码实现轮播图 | lxs</title>
+    <title>lxs</title>
   </head>
   <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -105,22 +105,25 @@
         <div class="main-container">
           <div class="content">
             
-<div id="post" class="page">
+
+<div id="index" class="index page">
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/js轮播图/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-       <meta itemprop="name" content="Lxs">
-       <meta itemprop="description" content="">
-       <meta itemprop="image" content="/images/panda.png">
+        <meta itemprop="name" content="Lxs">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/panda.png">
       </span>
       <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-       <meta itemprop="name" content="lxs">
+        <meta itemprop="name" content="lxs">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">利用js原生代码实现轮播图</h1>
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/01/22/js轮播图/" itemprop="url">利用js原生代码实现轮播图</a>
+      </h1>
       <div class="post-meta">
         
         <span class="post-date">
@@ -140,6 +143,7 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
+      
       <p>先说一下整体思路：<code>js</code>原生代码实现轮播图时，存放的图片比我们看到的图片实际上是要多一张的。也就是说，轮播的图片有<code>4</code>张时，实际上是有<code>5</code>张，第<code>5</code>张是和第<code>1</code>张是相同的图片，<code>5</code>张图片从左到右排列，只有盒子内的图片会显示，其他图片隐藏。当轮播到第<code>5</code>张图片的时候，会立即跳转回第<code>1</code>张图片（因为第<code>1</code>张和第<code>5</code>张相同，所以看到的效果是无缝轮播的）</p>
 <h1 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h1><p><code>&lt;div class=&quot;all&quot; id=&#39;box&#39;&gt;</code><br>  <code>&lt;div class=&quot;screen&quot;&gt;   &lt;!--相框,存放图片--&gt;</code><br>    <code>&lt;ul&gt;</code><br>      <code>&lt;li&gt;&lt;img src=&quot;&quot; width=&quot;500&quot; height=&quot;200&quot;/&gt;&lt;/li&gt;</code><br>      <code>&lt;li&gt;&lt;img src=&quot;&quot; width=&quot;500&quot; height=&quot;200&quot;/&gt;&lt;/li&gt;</code><br>      <code>&lt;li&gt;&lt;img src=&quot;&quot; width=&quot;500&quot; height=&quot;200&quot;/&gt;&lt;/li&gt;</code><br>      <code>&lt;li&gt;&lt;img src=&quot;&quot; width=&quot;500&quot; height=&quot;200&quot;/&gt;&lt;/li&gt;</code><br>    <code>&lt;/ul&gt;</code><br>    <code>&lt;ol&gt;&lt;/ol&gt;   &lt;!--存放和图片对应的列表--&gt;</code><br> <code>&lt;/div&gt;</code><br> <code>&lt;div id=&quot;arr&quot;&gt;</code><br><code>&lt;span id=&quot;left&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span id=&quot;right&quot;&gt;&amp;gt;&lt;/span&gt;</code><br><code>&lt;/div&gt; &lt;!--存放左右箭头--&gt;</code><br><code>&lt;/div&gt;</code></p>
 <h1 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h1><p> <code>*{</code><br>     <code>padding: 0;</code><br>      <code>margin: 0;</code><br>      <code>list-style: none;</code><br>      <code>border: 0;</code><br>    <code>}</code></p>
@@ -261,6 +265,7 @@
 <h2 id="设置任意的一个元素-移动到指定的目标位置-动画函数"><a href="#设置任意的一个元素-移动到指定的目标位置-动画函数" class="headerlink" title="设置任意的一个元素,移动到指定的目标位置(动画函数)"></a>设置任意的一个元素,移动到指定的目标位置(动画函数)</h2><p>  <code>function animate(element, target) {</code><br>    <code>clearInterval(element.timeId);</code><br>    <code>element.timeId = setInterval(function () {</code><br>      <code>//获取元素的当前的位置,数字类型</code><br>     <code>var current = element.offsetLeft;</code><br>      <code>//每次移动的距离</code><br>      <code>var step = 10;</code><br>     <code>step = current &lt; target ? step : -step;</code><br>      <code>//当前移动到位置</code><br>      <code>current += step;</code><br>      <code>if (Math.abs(current - target) &gt; Math.abs(step)) {</code><br>        <code>element.style.left = current + &quot;px&quot;;</code><br>      <code>} else {</code><br>        <code>//清理定时器</code><br>        <code>clearInterval(element.timeId);</code><br>        <code>//直接到达目标</code><br>        <code>element.style.left = target + &quot;px&quot;;</code><br>      <code>}</code><br>    <code>}, 10);</code><br>  <code>}</code></p>
 <p>使用<code>js</code>麻烦的地方在于得自己封装函数，然后才能调用，且业务逻辑较复杂，但对于基础学习来说是很重要的。</p>
 
+      
     </main>
     <footer class="post-footer">
       
@@ -268,17 +273,8 @@
   </article>
   
   
-  <nav class="page-nav">
-    <div class="page-nav-next page-nav-item">
-      
-      <a href="/2019/01/22/点名器/" rel="next" title="利用css布局和定时器实现简单的点名器"><i class="fas fa-angle-left"></i><span class="nav-title">利用css布局和定时器实现简单的点名器</span></a>
-      
-    </div>
-    <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2019/01/22/jquery轮播图/" rel="prev" title="利用Jquery实现轮播图"><span class="nav-title">利用Jquery实现轮播图</span><i class="fas fa-angle-right"></i></a>
-      
-    </div>
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -324,17 +320,6 @@
 
 
   <div class="sidebar-sticky">
-    
-    
-    
-    
-    
-    <hr>
-    <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#html代码"><span class="toc-text">html代码</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#css代码"><span class="toc-text">css代码</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#js代码"><span class="toc-text">js代码</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#1-获取所有的元素"><span class="toc-text">1 获取所有的元素</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#2-处理鼠标进入小圆点时图片的跳转"><span class="toc-text">2 处理鼠标进入小圆点时图片的跳转</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#3-自动播放"><span class="toc-text">3 自动播放</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#4-左右按钮"><span class="toc-text">4 左右按钮</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#事件处理函数"><span class="toc-text">事件处理函数</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#设置任意的一个元素-移动到指定的目标位置-动画函数"><span class="toc-text">设置任意的一个元素,移动到指定的目标位置(动画函数)</span></a></li></ol></li></ol></div>
-    </div>
-    
     
     
     <hr>
