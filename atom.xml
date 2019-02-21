@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-21T11:06:49.767Z</updated>
+  <updated>2019-02-21T12:16:50.592Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/02/21/css%E5%AE%9E%E7%8E%B0%E5%87%A0%E4%BD%95%E5%9B%BE%E5%BD%A2/"/>
+    <id>http://yoursite.com/2019/02/21/css实现几何图形/</id>
+    <published>2019-02-21T12:16:50.591Z</published>
+    <updated>2019-02-21T12:16:50.592Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数组去重</title>
+    <link href="http://yoursite.com/2019/02/21/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/"/>
+    <id>http://yoursite.com/2019/02/21/数组去重/</id>
+    <published>2019-02-21T11:26:00.382Z</published>
+    <updated>2019-02-21T12:14:34.514Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="这里采用ES6中新引入的数据结构Set进行去重，简单又实用"><a href="#这里采用ES6中新引入的数据结构Set进行去重，简单又实用" class="headerlink" title="这里采用ES6中新引入的数据结构Set进行去重，简单又实用"></a>这里采用ES6中新引入的数据结构Set进行去重，简单又实用</h1><p><code>var arr=[&#39;a&#39;,&#39;a&#39;,1,1,NaN,NaN,{},{},[],[]];</code><br><code>var set1=new Set(arr);</code><br><code>var arr1=arr.from(set1)</code><br><code>console.log(arr1);</code></p><h2 id="数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。"><a href="#数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。" class="headerlink" title="!!! 数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。"></a>!!! 数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;这里采用ES6中新引入的数据结构Set进行去重，简单又实用&quot;&gt;&lt;a href=&quot;#这里采用ES6中新引入的数据结构Set进行去重，简单又实用&quot; class=&quot;headerlink&quot; title=&quot;这里采用ES6中新引入的数据结构Set进行去重，简单又实用&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+      <category term="JS" scheme="http://yoursite.com/categories/JS/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>找出数组中每个字母出现的次数及统计出现次数最多的字母</title>

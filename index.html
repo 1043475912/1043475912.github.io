@@ -110,7 +110,7 @@
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/找出数组中每个字母出现的次数/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/css实现几何图形/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Lxs">
         <meta itemprop="description" content="">
@@ -122,33 +122,21 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/02/21/找出数组中每个字母出现的次数/" itemprop="url">找出数组中每个字母出现的次数及统计出现次数最多的字母</a>
+        <a class="post-title-link post-title-link-external" href="/2019/02/21/css实现几何图形/" itemprop="url"></a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-21T18:23:40+08:00">2019-02-21 18:23:40</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-21T20:16:50+08:00">2019-02-21 20:16:50</time></span>
         </span>
         
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
-        </span>
         
         
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <h1 id="这里举例说明如何实现，给定任一数组arr-a-a-a-a-a-b-b-b-c-c-d-d-d-d-e-，代码如下"><a href="#这里举例说明如何实现，给定任一数组arr-a-a-a-a-a-b-b-b-c-c-d-d-d-d-e-，代码如下" class="headerlink" title="这里举例说明如何实现，给定任一数组arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e]，代码如下:"></a>这里举例说明如何实现，给定任一数组<code>arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e]</code>，代码如下:</h1><p><code>var arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e];</code><br><code>var obj={};</code><br><code>for(i=0;i&lt;arr.length;i++){</code><br><code>var key=arr[i];</code><br><code>if(!obj[key]){</code><br><code>obj[key]=1;</code><br><code>}else{</code><br><code>obj[key]++;</code><br><code>}</code><br><code>}</code></p>
-<h2 id="此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中"><a href="#此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中" class="headerlink" title="此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:"></a>此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:</h2><p><code>var arr2=[];</code><br><code>for(key in obj){</code><br><code>arr2.push(obj[key])</code><br><code>}</code></p>
-<h2 id="此时找寻arr2中的最大值"><a href="#此时找寻arr2中的最大值" class="headerlink" title="此时找寻arr2中的最大值"></a>此时找寻arr2中的最大值</h2><p><code>var max=arr2[0]</code><br><code>for(i=1;i&lt;arr2.length;i++){</code><br><code>if(arr2[i]&gt;max){</code><br><code>max=arr2[i]</code><br><code>}</code><br><code>}</code></p>
-<h2 id="找寻arr2中的最大值对应的obj中的键"><a href="#找寻arr2中的最大值对应的obj中的键" class="headerlink" title="找寻arr2中的最大值对应的obj中的键"></a>找寻arr2中的最大值对应的obj中的键</h2><p><code>for( key in obj){</code><br><code>if(obj[key]==max){</code><br><code>console.log(&#39;字母&#39;+key+&#39;出现的次数最多，出现了&#39;+max+&#39;次&#39;)</code><br><code>}</code><br><code>}</code></p>
-<h2 id="结果是字母a出现的次数最多，出现了5次"><a href="#结果是字母a出现的次数最多，出现了5次" class="headerlink" title="结果是字母a出现的次数最多，出现了5次"></a>结果是字母a出现的次数最多，出现了5次</h2>
+      
       
     </main>
     <footer class="post-footer">
@@ -158,7 +146,7 @@
   
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -181,7 +169,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">5</a></div>
+      <div><a href="/archives/">7</a></div>
     </div>
     
     

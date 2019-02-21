@@ -110,7 +110,7 @@
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/jquery轮播图/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/找出数组中每个字母出现的次数/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Lxs">
         <meta itemprop="description" content="">
@@ -122,12 +122,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/01/22/jquery轮播图/" itemprop="url">利用Jquery实现轮播图</a>
+        <a class="post-title-link post-title-link-external" href="/2019/02/21/找出数组中每个字母出现的次数/" itemprop="url">找出数组中每个字母出现的次数及统计出现次数最多的字母</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-22T19:12:28+08:00">2019-01-22 19:12:28</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-21T18:23:40+08:00">2019-02-21 18:23:40</time></span>
         </span>
         
         
@@ -136,7 +136,7 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/jquery/" itemprop="url" rel="index"><span itemprop="name">jquery</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
         </span>
         
         
@@ -144,119 +144,11 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <p>同样先说一下整体思路：<code>Jquery</code>实现轮播图时，是所有图片叠放在一个位置，轮播时当前的图片显示，其他图片隐藏，这样做的一个好处就是在网页布局时，轮播图的位置只占一小块，不会影响其他布局（<code>js</code>原生代码实现时会占据所有图片的空间）</p>
-<h1 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h1><p><code>&lt;div class=&quot;slider&quot;&gt;</code><br>  <code>&lt;ul&gt;</code><br>  <code>&lt;li&gt;&lt;img src=&quot;images/1.jpg&quot; width=&quot;500px&quot; height=&#39;200px&#39;&gt;&lt;/li&gt;</code><br>  <code>&lt;li&gt;&lt;img src=&quot;images/2.jpg&quot; width=&quot;500px&quot; height=&#39;200px&#39;&gt;&lt;/li&gt;</code><br>  <code>&lt;li&gt;&lt;img src=&quot;images/3.jpg&quot; width=&quot;500px&quot; height=&#39;200px&#39;&gt;&lt;/li&gt;</code><br>  <code>&lt;li&gt;&lt;img src=&quot;images/4.jpg&quot; width=&quot;500px&quot; height=&#39;200px&#39;&gt;&lt;/li&gt;</code><br> <code>&lt;/ul&gt;</code></p>
-<p>  <code>&lt;ol&gt;</code><br>    <code>&lt;li&gt;&lt;/li&gt;</code><br>    <code>&lt;li&gt;&lt;/li&gt;</code><br>    <code>&lt;li&gt;&lt;/li&gt;</code><br>    <code>&lt;li&gt;&lt;/li&gt;</code><br>  <code>&lt;/ol&gt;</code><br>  <code>&lt;!--箭头--&gt;</code><br>  <code>&lt;div class=&quot;arrow&quot;&gt;</code><br>    <code>&lt;span class=&quot;arrow-left&quot;&gt;&amp;lt;&lt;/span&gt;</code><br>    <code>&lt;span class=&quot;arrow-right&quot;&gt;&amp;gt;&lt;/span&gt;</code><br>  <code>&lt;/div&gt;</code><br><code>&lt;/div&gt;</code></p>
-<h1 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h1><p> <code>* {</code><br>     <code>margin: 0;</code><br>     <code>padding: 0;</code><br>      <code>list-style: none;</code><br>    <code>}</code></p>
-<pre><code>.slider {
-  height: 200px;
-  width: 500px;
-  margin: 100px auto;
-  position: relative;
-}
-
-.slider ul li {
-  position: absolute;
-  display: none;
-}
-
-.slider ul li:first-child {
-  display: block;
-}
-.slider ol {
-  position: absolute;
-  left: 200px;
-  bottom: 10px;
-}
-
-.slider ol li {
-  float: left;
-  width: 10px;
-  height: 10px;
-  border-radius:50%;
-  background-color:#fff;
-  border: 1px solid #ccc;
-  margin-left: 10px;
-  cursor: pointer;
-} 
-
-
-.arrow {
-  display: none;
-}
-
-.slider:hover .arrow {
-  display: block;
-}
-
-.arrow-left,
-.arrow-right {
-  font-family: &quot;SimSun&quot;, &quot;宋体&quot;;
-  width: 30px;
-  height: 60px;
-  background-color: rgba(0, 0, 0, 0.1);
-  position: absolute;
-  top: 50%;
-  margin-top: -30px;
-  cursor: pointer;
-  text-align: center;
-  line-height: 60px;
-  color: #fff;
-  font-weight: 700;
-  font-size: 30px;
-}
-
-.arrow-left:hover,
-.arrow-right:hover {
-  background-color: rgba(0, 0, 0, .5);
-}
-
-.arrow-left {
-  left: 0;
-}
-
-.arrow-right {
-  right: 0;
-}
-</code></pre><h1 id="Jquery代码"><a href="#Jquery代码" class="headerlink" title="Jquery代码"></a>Jquery代码</h1><h2 id="1-自动播放"><a href="#1-自动播放" class="headerlink" title="1 自动播放"></a>1 自动播放</h2><p> <code>var index=0;</code><br>    <code>$(&#39;ol li&#39;).eq(index).css({&#39;background&#39;:&#39;red&#39;}).siblings(&#39;li&#39;).css({&#39;background&#39;:&#39;#fff&#39;});</code><br>    <code>var timeId=setInterval(play,3000);</code></p>
-<pre><code>function play(){
-    index++;
-    if(index==$(&apos;ul li&apos;).length){
-        index=0;
-}
-
-  $(&apos;ul li&apos;).eq(index).fadeIn().siblings(&apos;ul li&apos;).fadeOut();
-  $(&apos;ol li&apos;).eq(index).css({&apos;background&apos;:&apos;red&apos;}).siblings(&apos;li&apos;).css({&apos;background&apos;:&apos;#fff&apos;});
-        }
-</code></pre><h2 id="2-左右箭头"><a href="#2-左右箭头" class="headerlink" title="2 左右箭头"></a>2 左右箭头</h2><pre><code>var count = 0;
-
-$(&quot;.arrow-right&quot;).click(function () {
-  count++;
-  if(count == $(&quot;ul li&quot;).length){
-    count = 0;
-  }
-  //让count渐渐的显示，其他兄弟渐渐的隐藏
-  $(&quot;ul li&quot;).eq(count).fadeIn().siblings(&quot;li&quot;).fadeOut();
-  $(&apos;ol li&apos;).eq(count).css({&apos;background&apos;:&apos;red&apos;}).siblings(&apos;li&apos;).css({&apos;background&apos;:&apos;#fff&apos;});
-});
-
-$(&quot;.arrow-left&quot;).click(function () {
-  count--;
-
-  if(count == -1){
-    count = $(&quot;ul li&quot;).length - 1;
-  }
-  //让count渐渐的显示，其他兄弟渐渐的隐藏
-  $(&quot;ul li&quot;).eq(count).fadeIn().siblings(&quot;li&quot;).fadeOut();
-  $(&apos;ol li&apos;).eq(count).css({&apos;background&apos;:&apos;red&apos;}).siblings(&apos;li&apos;).css({&apos;background&apos;:&apos;#fff&apos;});
-})
-</code></pre><h2 id="3-进入元素停止定时器，离开开启"><a href="#3-进入元素停止定时器，离开开启" class="headerlink" title="3 进入元素停止定时器，离开开启"></a>3 进入元素停止定时器，离开开启</h2><pre><code>$(&apos;.slider&apos;).hover(function(){
-      clearInterval(timeId);
-    },function(){
-       timeId=setInterval(play,3000);
-    })
-</code></pre><p>使用<code>Jquery</code>的好处就是<code>Jquery</code>帮我们封装好了一些函数，可以直接使用，不像<code>js</code>得自己封装，但个中原理都是一样的。</p>
-
+      <h1 id="这里举例说明如何实现，给定任一数组arr-a-a-a-a-a-b-b-b-c-c-d-d-d-d-e-，代码如下"><a href="#这里举例说明如何实现，给定任一数组arr-a-a-a-a-a-b-b-b-c-c-d-d-d-d-e-，代码如下" class="headerlink" title="这里举例说明如何实现，给定任一数组arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e]，代码如下:"></a>这里举例说明如何实现，给定任一数组<code>arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e]</code>，代码如下:</h1><p><code>var arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e];</code><br><code>var obj={};</code><br><code>for(i=0;i&lt;arr.length;i++){</code><br><code>var key=arr[i];</code><br><code>if(!obj[key]){</code><br><code>obj[key]=1;</code><br><code>}else{</code><br><code>obj[key]++;</code><br><code>}</code><br><code>}</code></p>
+<h2 id="此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中"><a href="#此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中" class="headerlink" title="此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:"></a>此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:</h2><p><code>var arr2=[];</code><br><code>for(key in obj){</code><br><code>arr2.push(obj[key])</code><br><code>}</code></p>
+<h2 id="此时找寻arr2中的最大值"><a href="#此时找寻arr2中的最大值" class="headerlink" title="此时找寻arr2中的最大值"></a>此时找寻arr2中的最大值</h2><p><code>var max=arr2[0]</code><br><code>for(i=1;i&lt;arr2.length;i++){</code><br><code>if(arr2[i]&gt;max){</code><br><code>max=arr2[i]</code><br><code>}</code><br><code>}</code></p>
+<h2 id="找寻arr2中的最大值对应的obj中的键"><a href="#找寻arr2中的最大值对应的obj中的键" class="headerlink" title="找寻arr2中的最大值对应的obj中的键"></a>找寻arr2中的最大值对应的obj中的键</h2><p><code>for( key in obj){</code><br><code>if(obj[key]==max){</code><br><code>console.log(&#39;字母&#39;+key+&#39;出现的次数最多，出现了&#39;+max+&#39;次&#39;)</code><br><code>}</code><br><code>}</code></p>
+<h2 id="结果是字母a出现的次数最多，出现了5次"><a href="#结果是字母a出现的次数最多，出现了5次" class="headerlink" title="结果是字母a出现的次数最多，出现了5次"></a>结果是字母a出现的次数最多，出现了5次</h2>
       
     </main>
     <footer class="post-footer">
@@ -266,7 +158,7 @@ $(&quot;.arrow-left&quot;).click(function () {
   
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -289,7 +181,7 @@ $(&quot;.arrow-left&quot;).click(function () {
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">5</a></div>
+      <div><a href="/archives/">7</a></div>
     </div>
     
     
