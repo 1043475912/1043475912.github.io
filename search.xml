@@ -8,7 +8,7 @@
       <link href="/2019/02/21/%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E6%AF%8F%E4%B8%AA%E5%AD%97%E6%AF%8D%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/"/>
       <url>/2019/02/21/%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E6%AF%8F%E4%B8%AA%E5%AD%97%E6%AF%8D%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="这里举例说明如何实现，给定任一数组arr-a-a-a-a-a-b-b-b-c-c-d-d-d-d-e-，代码如下"><a href="#这里举例说明如何实现，给定任一数组arr-a-a-a-a-a-b-b-b-c-c-d-d-d-d-e-，代码如下" class="headerlink" title="这里举例说明如何实现，给定任一数组arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e]，代码如下:"></a>这里举例说明如何实现，给定任一数组<code>arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e]</code>，代码如下:</h1><p><code>var arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e];</code><br><code>var obj={};</code><br><code>for(i=0;i&lt;arr.length;i++){</code><br><code>var key=arr[i];</code><br><code>if(!obj[key]){</code><br><code>obj[key]=1;</code><br><code>}else{</code><br><code>obj[key]++;</code><br><code>}</code><br><code>}</code></p><h2 id="此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中"><a href="#此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中" class="headerlink" title="此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:"></a>此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:</h2><p><code>var arr2=[];</code><br><code>for(key in obj){</code><br><code>arr2.push(obj[key])</code><br><code>}</code></p><h2 id="此时找寻arr2中的最大值"><a href="#此时找寻arr2中的最大值" class="headerlink" title="此时找寻arr2中的最大值"></a>此时找寻arr2中的最大值</h2><p><code>var max=arr2[0]</code><br><code>for(i=1;i&lt;arr2.length;i++){</code><br><code>if(arr2[i]&gt;max){</code><br><code>max=arr2[i]</code><br><code>}</code><br><code>}</code></p><h2 id="找寻arr2中的最大值对应的obj中的键"><a href="#找寻arr2中的最大值对应的obj中的键" class="headerlink" title="找寻arr2中的最大值对应的obj中的键"></a>找寻arr2中的最大值对应的obj中的键</h2><p><code>for( key in obj){</code><br><code>if(obj[key]==max){</code><br><code>console.log(&#39;字母&#39;+key+&#39;出现的次数最多，出现了&#39;+max+&#39;次&#39;)</code><br><code>}</code><br><code>}</code></p><h2 id="结果是字母a出现的次数最多，出现了5次"><a href="#结果是字母a出现的次数最多，出现了5次" class="headerlink" title="结果是字母a出现的次数最多，出现了5次"></a>结果是字母a出现的次数最多，出现了5次</h2>]]></content>
       
       
       <categories>
@@ -32,7 +32,7 @@
       
       <categories>
           
-          <category> 轮播图 </category>
+          <category> HTML5 </category>
           
       </categories>
       
@@ -51,7 +51,7 @@
       
       <categories>
           
-          <category> 轮播图 </category>
+          <category> jquery </category>
           
       </categories>
       
@@ -70,7 +70,7 @@
       
       <categories>
           
-          <category> 轮播图 </category>
+          <category> JS </category>
           
       </categories>
       
@@ -89,7 +89,7 @@
       
       <categories>
           
-          <category> 定时器 </category>
+          <category> JS </category>
           
       </categories>
       
