@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-21T12:16:50.592Z</updated>
+  <updated>2019-02-21T13:48:15.845Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,15 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2019/02/21/css%E5%AE%9E%E7%8E%B0%E5%87%A0%E4%BD%95%E5%9B%BE%E5%BD%A2/"/>
-    <id>http://yoursite.com/2019/02/21/css实现几何图形/</id>
-    <published>2019-02-21T12:16:50.591Z</published>
-    <updated>2019-02-21T12:16:50.592Z</updated>
+    <title>用CSS实现元素内容居中</title>
+    <link href="http://yoursite.com/2019/02/21/%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E5%86%85%E5%AE%B9%E5%B1%85%E4%B8%AD/"/>
+    <id>http://yoursite.com/2019/02/21/实现元素内容居中/</id>
+    <published>2019-02-21T13:30:04.441Z</published>
+    <updated>2019-02-21T13:48:15.845Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-水平居中"><a href="#1-水平居中" class="headerlink" title="1.水平居中"></a>1.水平居中</h1><p>##实现水平居中是最简单的，文本内容直接居中即可<br><code>div{</code><br>    <code>width:300px;</code><br>    <code>height:300px;</code><br>    <code>text-align:center;</code><br>    <code>border: 1px solid black;</code><br><code>}</code></p><h1 id="2-垂直居中"><a href="#2-垂直居中" class="headerlink" title="2.垂直居中"></a>2.垂直居中</h1><p>##实现垂直居中只介绍比较简单的3种方法，毕竟本人只是菜鸟一枚(TmT)</p><p>##2.1 设置行高与元素高度一致(只适用于1行内容)<br><code>div{</code><br>    <code>width:300px;</code><br>    <code>height:300px;</code><br>    <code>line-height:300px;</code><br>    <code>border: 1px solid black;</code><br><code>}</code></p><p>##2.2 根据高度控制内边距<br><code>div{</code><br>    <code>width:300px;</code><br>    <code>height:300px;</code><br>    <code>padding-top:140px; //这里大家可自行更改数值使之居中</code><br>    <code>border: 1px solid black;</code><br><code>}</code></p><p>##2.3 css动画实现（将内容放入p标签中）<br><code>div{</code><br>    <code>position: absolute;</code><br>    <code>width: 300px;</code><br>    <code>height: 300px;</code><br>    <code>border: 1px solid red;</code></p><p><code>}</code><br><code>p{</code><br>   <code>position: absolute;</code><br>   <code>width: 150px;</code><br>   <code>top: 50%;</code><br>   <code>left:50%;</code><br>   <code>transform: translate(-50%,-50%);</code><br>   <code>border: 1px solid black;</code><br> }</p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;h1 id=&quot;1-水平居中&quot;&gt;&lt;a href=&quot;#1-水平居中&quot; class=&quot;headerlink&quot; title=&quot;1.水平居中&quot;&gt;&lt;/a&gt;1.水平居中&lt;/h1&gt;&lt;p&gt;##实现水平居中是最简单的，文本内容直接居中即可&lt;br&gt;&lt;code&gt;div{&lt;/code&gt;&lt;br&gt;    &lt;
+      
+    
     </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>用CSS实现各种几何图形</title>
+    <link href="http://yoursite.com/2019/02/21/css%E5%AE%9E%E7%8E%B0%E5%87%A0%E4%BD%95%E5%9B%BE%E5%BD%A2/"/>
+    <id>http://yoursite.com/2019/02/21/css实现几何图形/</id>
+    <published>2019-02-21T12:16:50.591Z</published>
+    <updated>2019-02-21T13:33:07.912Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-矩形"><a href="#1-矩形" class="headerlink" title="1.矩形"></a>1.矩形</h1><p>##实现矩形是最简单的，只需设置块元素的宽高和颜色即可<br><code>div{</code><br><code>width:100px;</code><br><code>height:200px;</code><br><code>background-color:blue;</code></p><p><code>}</code></p><h1 id="2-三角形"><a href="#2-三角形" class="headerlink" title="2.三角形"></a>2.三角形</h1><p>##实现三角形只需将元素的宽高和内填充设为0，只剩边框即可<br><code>div{</code><br><code>width:0px;</code><br><code>height:0px;</code><br><code>border-width:5px;</code><br><code>border-style:solid;</code><br><code>border-color:blue red green skyblue</code><br><code>}</code></p><p>##如果只想要1个三角形，将其他3个边框的颜色变成透明(transparent)即可</p><h1 id="3-圆形（椭圆形）"><a href="#3-圆形（椭圆形）" class="headerlink" title="3.圆形（椭圆形）"></a>3.圆形（椭圆形）</h1><p>##实现圆形（椭圆形）只需控制元素的四个角的圆角圆心位置即可<br><code>div{</code><br><code>width:100px;</code><br><code>height:100px;</code><br><code>border-radius:50%/50%;</code><br><code>}</code></p><p>##div为正方形时可画圆，为矩形时可画椭圆。由此也可延伸出画半圆，1/4圆等，比较简单，这里不详述了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;1-矩形&quot;&gt;&lt;a href=&quot;#1-矩形&quot; class=&quot;headerlink&quot; title=&quot;1.矩形&quot;&gt;&lt;/a&gt;1.矩形&lt;/h1&gt;&lt;p&gt;##实现矩形是最简单的，只需设置块元素的宽高和颜色即可&lt;br&gt;&lt;code&gt;div{&lt;/code&gt;&lt;br&gt;&lt;code&gt;widt
+      
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
     
     
   </entry>

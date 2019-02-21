@@ -71,7 +71,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title> | lxs</title>
+    <title>用CSS实现各种几何图形 | lxs</title>
   </head>
   <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -120,7 +120,7 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline"></h1>
+      <h1 class="post-title" itemprop="name headline">用CSS实现各种几何图形</h1>
       <div class="post-meta">
         
         <span class="post-date">
@@ -129,10 +129,24 @@
         
         
         
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a></span>
+        </span>
+        
+        
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      
+      <h1 id="1-矩形"><a href="#1-矩形" class="headerlink" title="1.矩形"></a>1.矩形</h1><p>##实现矩形是最简单的，只需设置块元素的宽高和颜色即可<br><code>div{</code><br><code>width:100px;</code><br><code>height:200px;</code><br><code>background-color:blue;</code></p>
+<p><code>}</code></p>
+<h1 id="2-三角形"><a href="#2-三角形" class="headerlink" title="2.三角形"></a>2.三角形</h1><p>##实现三角形只需将元素的宽高和内填充设为0，只剩边框即可<br><code>div{</code><br><code>width:0px;</code><br><code>height:0px;</code><br><code>border-width:5px;</code><br><code>border-style:solid;</code><br><code>border-color:blue red green skyblue</code><br><code>}</code></p>
+<p>##如果只想要1个三角形，将其他3个边框的颜色变成透明(transparent)即可</p>
+<h1 id="3-圆形（椭圆形）"><a href="#3-圆形（椭圆形）" class="headerlink" title="3.圆形（椭圆形）"></a>3.圆形（椭圆形）</h1><p>##实现圆形（椭圆形）只需控制元素的四个角的圆角圆心位置即可<br><code>div{</code><br><code>width:100px;</code><br><code>height:100px;</code><br><code>border-radius:50%/50%;</code><br><code>}</code></p>
+<p>##div为正方形时可画圆，为矩形时可画椭圆。由此也可延伸出画半圆，1/4圆等，比较简单，这里不详述了。</p>
+
     </main>
     <footer class="post-footer">
       
@@ -147,6 +161,8 @@
       
     </div>
     <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/02/21/实现元素内容居中/" rel="prev" title="用CSS实现元素内容居中"><span class="nav-title">用CSS实现元素内容居中</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -171,7 +187,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">7</a></div>
+      <div><a href="/archives/">8</a></div>
     </div>
     
     
@@ -180,7 +196,7 @@
     
     <div class="categories-count">
       <div class="site-count-title">分类</div>
-      <div><a href="/categories/">3</a></div>
+      <div><a href="/categories/">4</a></div>
     </div>
     
     
@@ -194,6 +210,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#1-矩形"><span class="toc-text">1.矩形</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#2-三角形"><span class="toc-text">2.三角形</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#3-圆形（椭圆形）"><span class="toc-text">3.圆形（椭圆形）</span></a></li></ol></div>
+    </div>
+    
     
     
     <hr>
