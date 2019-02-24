@@ -144,7 +144,7 @@
 <h1 id="2-垂直居中"><a href="#2-垂直居中" class="headerlink" title="2.垂直居中"></a>2.垂直居中</h1><p>##实现垂直居中只介绍比较简单的3种方法，毕竟本人只是菜鸟一枚(TmT)</p>
 <p>##2.1 设置行高与元素高度一致(只适用于1行内容)<br><code>div{</code><br>    <code>width:300px;</code><br>    <code>height:300px;</code><br>    <code>line-height:300px;</code><br>    <code>border: 1px solid black;</code><br><code>}</code></p>
 <p>##2.2 根据高度控制内边距<br><code>div{</code><br>    <code>width:300px;</code><br>    <code>height:300px;</code><br>    <code>padding-top:140px; //这里大家可自行更改数值使之居中</code><br>    <code>border: 1px solid black;</code><br><code>}</code></p>
-<p>##2.3 css动画实现（将内容放入p标签中）<br><code>div{</code><br>    <code>position: absolute;</code><br>    <code>width: 300px;</code><br>    <code>height: 300px;</code><br>    <code>border: 1px solid red;</code></p>
+<p>##2.3 css动画实现（将内容放入p标签中）<br><code>div{</code><br>    <code>position: relative;</code><br>    <code>width: 300px;</code><br>    <code>height: 300px;</code><br>    <code>border: 1px solid red;</code></p>
 <p><code>}</code><br><code>p{</code><br>   <code>position: absolute;</code><br>   <code>width: 150px;</code><br>   <code>top: 50%;</code><br>   <code>left:50%;</code><br>   <code>transform: translate(-50%,-50%);</code><br>   <code>border: 1px solid black;</code><br> }</p>
 
     </main>
