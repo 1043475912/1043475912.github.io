@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>判断一个字符串是否是另一个字符串的子字符串</title>
+      <link href="/2019/02/28/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/"/>
+      <url>/2019/02/28/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/</url>
+      
+        <content type="html"><![CDATA[<p>判断两个字符串的关系时，可以在长字符串中截取与短字符串相等长度的字符串进行比较，看下面代码：<br> <code>function judge(son,father){</code><br>      for(i=0;i&lt;father.length;i++){<br>          if(son[0]==father[i]){<br>            return father.slice(i,i+son.length)==son;<br>          }<br>      }</p><p> <code>}</code> </p><p>document.writeln(judge(‘ab’,’abc’))</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JS </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>用CSS实现元素内容居中</title>
       <link href="/2019/02/21/%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E5%86%85%E5%AE%B9%E5%B1%85%E4%B8%AD/"/>
       <url>/2019/02/21/%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E5%86%85%E5%AE%B9%E5%B1%85%E4%B8%AD/</url>
@@ -65,7 +84,7 @@
       <link href="/2019/02/21/%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E6%AF%8F%E4%B8%AA%E5%AD%97%E6%AF%8D%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/"/>
       <url>/2019/02/21/%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E6%AF%8F%E4%B8%AA%E5%AD%97%E6%AF%8D%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/</url>
       
-        <content type="html"><![CDATA[<h1 id="这里举例说明如何实现，给定任一数组arr-a-a-a-a-a-b-b-b-c-c-d-d-d-d-e-，代码如下"><a href="#这里举例说明如何实现，给定任一数组arr-a-a-a-a-a-b-b-b-c-c-d-d-d-d-e-，代码如下" class="headerlink" title="这里举例说明如何实现，给定任一数组arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e]，代码如下:"></a>这里举例说明如何实现，给定任一数组<code>arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e]</code>，代码如下:</h1><p><code>var arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e];</code><br><code>var obj={};</code><br><code>for(i=0;i&lt;arr.length;i++){</code><br>&emsp;<code>var key=arr[i];</code><br>&emsp;&emsp;<code>if(!obj[key]){</code><br>&emsp;&emsp;&emsp;<code>obj[key]=1;</code><br>&emsp;&emsp;<code>}else{</code><br>&emsp;&emsp;&emsp;<code>obj[key]++;</code><br>&emsp;<code>}</code><br>&emsp;&emsp;<code>}</code></p><h2 id="此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中"><a href="#此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中" class="headerlink" title="此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:"></a>此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:</h2><p><code>var arr2=[];</code><br><code>for(key in obj){</code><br>&emsp;<code>arr2.push(obj[key])</code><br><code>}</code></p><h2 id="此时找寻arr2中的最大值"><a href="#此时找寻arr2中的最大值" class="headerlink" title="此时找寻arr2中的最大值"></a>此时找寻arr2中的最大值</h2><p><code>max=Math.max(...arr2)</code></p><h2 id="找寻arr2中的最大值对应的obj中的键"><a href="#找寻arr2中的最大值对应的obj中的键" class="headerlink" title="找寻arr2中的最大值对应的obj中的键"></a>找寻arr2中的最大值对应的obj中的键</h2><p><code>for( key in obj){</code><br>&emsp;<code>if(obj[key]==max){</code><br>&emsp;&emsp;<code>console.log(&#39;字母&#39;+key+&#39;出现的次数最多，出现了&#39;+max+&#39;次&#39;)</code><br><code>}</code><br>&emsp;<code>}</code></p><h2 id="结果是字母a出现的次数最多，出现了5次"><a href="#结果是字母a出现的次数最多，出现了5次" class="headerlink" title="结果是字母a出现的次数最多，出现了5次"></a>结果是字母a出现的次数最多，出现了5次</h2>]]></content>
+        <content type="html"><![CDATA[<h1 id="这里举例说明如何实现，给定任一数组，代码如下"><a href="#这里举例说明如何实现，给定任一数组，代码如下" class="headerlink" title="这里举例说明如何实现，给定任一数组，代码如下:"></a>这里举例说明如何实现，给定任一数组，代码如下:</h1><p><code>var arr=[&#39;a&#39;,&#39;a&#39;,&#39;a&#39;,&#39;a&#39;,&#39;a&#39;,&#39;b&#39;,&#39;b&#39;,&#39;b&#39;,&#39;c&#39;,&#39;c&#39;,&#39;d&#39;,&#39;d&#39;,&#39;d&#39;,&#39;d&#39;,&#39;e&#39;];</code><br><code>var obj={};</code><br><code>for(i=0;i&lt;arr.length;i++){</code><br>&emsp;<code>var key=arr[i];</code><br>&emsp;&emsp;<code>if(!obj[key]){</code><br>&emsp;&emsp;&emsp;<code>obj[key]=1;</code><br>&emsp;&emsp;<code>}else{</code><br>&emsp;&emsp;&emsp;<code>obj[key]++;</code><br>&emsp;<code>}</code><br>&emsp;&emsp;<code>}</code></p><h2 id="此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中"><a href="#此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中" class="headerlink" title="此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:"></a>此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:</h2><p><code>var arr2=[];</code><br><code>for(key in obj){</code><br>&emsp;<code>arr2.push(obj[key])</code><br><code>}</code></p><h2 id="此时找寻arr2中的最大值"><a href="#此时找寻arr2中的最大值" class="headerlink" title="此时找寻arr2中的最大值"></a>此时找寻arr2中的最大值</h2><p><code>max=Math.max(...arr2)</code></p><h2 id="找寻arr2中的最大值对应的obj中的键"><a href="#找寻arr2中的最大值对应的obj中的键" class="headerlink" title="找寻arr2中的最大值对应的obj中的键"></a>找寻arr2中的最大值对应的obj中的键</h2><p><code>for( key in obj){</code><br>&emsp;<code>if(obj[key]==max){</code><br>&emsp;&emsp;<code>console.log(&#39;字母&#39;+key+&#39;出现的次数最多，出现了&#39;+max+&#39;次&#39;)</code><br><code>}</code><br>&emsp;<code>}</code></p><h2 id="结果是字母a出现的次数最多，出现了5次"><a href="#结果是字母a出现的次数最多，出现了5次" class="headerlink" title="结果是字母a出现的次数最多，出现了5次"></a>结果是字母a出现的次数最多，出现了5次</h2>]]></content>
       
       
       <categories>

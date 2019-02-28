@@ -140,7 +140,7 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h1 id="这里举例说明如何实现，给定任一数组arr-a-a-a-a-a-b-b-b-c-c-d-d-d-d-e-，代码如下"><a href="#这里举例说明如何实现，给定任一数组arr-a-a-a-a-a-b-b-b-c-c-d-d-d-d-e-，代码如下" class="headerlink" title="这里举例说明如何实现，给定任一数组arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e]，代码如下:"></a>这里举例说明如何实现，给定任一数组<code>arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e]</code>，代码如下:</h1><p><code>var arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e];</code><br><code>var obj={};</code><br><code>for(i=0;i&lt;arr.length;i++){</code><br>&emsp;<code>var key=arr[i];</code><br>&emsp;&emsp;<code>if(!obj[key]){</code><br>&emsp;&emsp;&emsp;<code>obj[key]=1;</code><br>&emsp;&emsp;<code>}else{</code><br>&emsp;&emsp;&emsp;<code>obj[key]++;</code><br>&emsp;<code>}</code><br>&emsp;&emsp;<code>}</code></p>
+      <h1 id="这里举例说明如何实现，给定任一数组，代码如下"><a href="#这里举例说明如何实现，给定任一数组，代码如下" class="headerlink" title="这里举例说明如何实现，给定任一数组，代码如下:"></a>这里举例说明如何实现，给定任一数组，代码如下:</h1><p><code>var arr=[&#39;a&#39;,&#39;a&#39;,&#39;a&#39;,&#39;a&#39;,&#39;a&#39;,&#39;b&#39;,&#39;b&#39;,&#39;b&#39;,&#39;c&#39;,&#39;c&#39;,&#39;d&#39;,&#39;d&#39;,&#39;d&#39;,&#39;d&#39;,&#39;e&#39;];</code><br><code>var obj={};</code><br><code>for(i=0;i&lt;arr.length;i++){</code><br>&emsp;<code>var key=arr[i];</code><br>&emsp;&emsp;<code>if(!obj[key]){</code><br>&emsp;&emsp;&emsp;<code>obj[key]=1;</code><br>&emsp;&emsp;<code>}else{</code><br>&emsp;&emsp;&emsp;<code>obj[key]++;</code><br>&emsp;<code>}</code><br>&emsp;&emsp;<code>}</code></p>
 <h2 id="此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中"><a href="#此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中" class="headerlink" title="此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:"></a>此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:</h2><p><code>var arr2=[];</code><br><code>for(key in obj){</code><br>&emsp;<code>arr2.push(obj[key])</code><br><code>}</code></p>
 <h2 id="此时找寻arr2中的最大值"><a href="#此时找寻arr2中的最大值" class="headerlink" title="此时找寻arr2中的最大值"></a>此时找寻arr2中的最大值</h2><p><code>max=Math.max(...arr2)</code></p>
 <h2 id="找寻arr2中的最大值对应的obj中的键"><a href="#找寻arr2中的最大值对应的obj中的键" class="headerlink" title="找寻arr2中的最大值对应的obj中的键"></a>找寻arr2中的最大值对应的obj中的键</h2><p><code>for( key in obj){</code><br>&emsp;<code>if(obj[key]==max){</code><br>&emsp;&emsp;<code>console.log(&#39;字母&#39;+key+&#39;出现的次数最多，出现了&#39;+max+&#39;次&#39;)</code><br><code>}</code><br>&emsp;<code>}</code></p>
@@ -185,7 +185,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">8</a></div>
+      <div><a href="/archives/">9</a></div>
     </div>
     
     
@@ -216,7 +216,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#这里举例说明如何实现，给定任一数组arr-a-a-a-a-a-b-b-b-c-c-d-d-d-d-e-，代码如下"><span class="toc-text">这里举例说明如何实现，给定任一数组arr=[a,a,a,a,a,b,b,b,c,c,d,d,d,d,e]，代码如下:</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中"><span class="toc-text">此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#此时找寻arr2中的最大值"><span class="toc-text">此时找寻arr2中的最大值</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#找寻arr2中的最大值对应的obj中的键"><span class="toc-text">找寻arr2中的最大值对应的obj中的键</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#结果是字母a出现的次数最多，出现了5次"><span class="toc-text">结果是字母a出现的次数最多，出现了5次</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#这里举例说明如何实现，给定任一数组，代码如下"><span class="toc-text">这里举例说明如何实现，给定任一数组，代码如下:</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#此时得到了一个对象，键存储字母，值存储字母出现的次数-下面再将对象的值存储在数组中"><span class="toc-text">此时得到了一个对象，键存储字母，值存储字母出现的次数,下面再将对象的值存储在数组中:</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#此时找寻arr2中的最大值"><span class="toc-text">此时找寻arr2中的最大值</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#找寻arr2中的最大值对应的obj中的键"><span class="toc-text">找寻arr2中的最大值对应的obj中的键</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#结果是字母a出现的次数最多，出现了5次"><span class="toc-text">结果是字母a出现的次数最多，出现了5次</span></a></li></ol></li></ol></div>
     </div>
     
     

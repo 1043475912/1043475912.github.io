@@ -110,7 +110,7 @@
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/点名器/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/js轮播图/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Lxs">
         <meta itemprop="description" content="">
@@ -122,12 +122,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/01/22/点名器/" itemprop="url">利用css布局和定时器实现简单的点名器</a>
+        <a class="post-title-link post-title-link-external" href="/2019/01/22/js轮播图/" itemprop="url">利用js原生代码实现轮播图</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-22T16:41:23+08:00">2019-01-22 16:41:23</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-22T19:10:51+08:00">2019-01-22 19:10:51</time></span>
         </span>
         
         
@@ -144,81 +144,127 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <p><code>css</code>布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用<code>div</code>存放.用定时器实现就比较简单了，具体看代码</p>
-<h1 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a><code>html</code>代码</h1><pre><code>&lt;h1&gt;点名器&lt;/h1&gt;
-</code></pre><p>  <code>&lt;input type=&quot;button&quot; value=&quot;开始&quot; id=&quot;start&quot;&gt;</code></p>
-<p>  <code>&lt;input type=&quot;button&quot; value=&quot;结束&quot; id=&quot;end&quot;&gt;</code></p>
-<pre><code> &lt;div class=&quot;btn&quot;&gt;
-       &lt;div&gt;1&lt;/div&gt;
-       &lt;div&gt;2&lt;/div&gt;
-       &lt;div&gt;3&lt;/div&gt;
-       &lt;div&gt;4&lt;/div&gt;
-       &lt;div&gt;5&lt;/div&gt;
-       &lt;div&gt;6&lt;/div&gt;
-       &lt;div&gt;7&lt;/div&gt;
-       &lt;div&gt;8&lt;/div&gt;
-       &lt;div&gt;9&lt;/div&gt;
-       &lt;div&gt;10&lt;/div&gt;
-       &lt;div&gt;11&lt;/div&gt;
-       &lt;div&gt;12&lt;/div&gt;
-       &lt;div&gt;13&lt;/div&gt;
-       &lt;div&gt;14&lt;/div&gt;
-       &lt;div&gt;15&lt;/div&gt;
-&lt;/div&gt;
-</code></pre><h2 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a><code>css</code>代码</h2><pre><code>*{
-    margin:0px;
-    padding: 0px;
+      <p>先说一下整体思路：<code>js</code>原生代码实现轮播图时，存放的图片比我们看到的图片实际上是要多一张的。也就是说，轮播的图片有<code>4</code>张时，实际上是有<code>5</code>张，第<code>5</code>张是和第<code>1</code>张是相同的图片，<code>5</code>张图片从左到右排列，只有盒子内的图片会显示，其他图片隐藏。当轮播到第<code>5</code>张图片的时候，会立即跳转回第<code>1</code>张图片（因为第<code>1</code>张和第<code>5</code>张相同，所以看到的效果是无缝轮播的）</p>
+<h1 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h1><p><code>&lt;div class=&quot;all&quot; id=&#39;box&#39;&gt;</code><br>  <code>&lt;div class=&quot;screen&quot;&gt;   &lt;!--相框,存放图片--&gt;</code><br>    <code>&lt;ul&gt;</code><br>      <code>&lt;li&gt;&lt;img src=&quot;&quot; width=&quot;500&quot; height=&quot;200&quot;/&gt;&lt;/li&gt;</code><br>      <code>&lt;li&gt;&lt;img src=&quot;&quot; width=&quot;500&quot; height=&quot;200&quot;/&gt;&lt;/li&gt;</code><br>      <code>&lt;li&gt;&lt;img src=&quot;&quot; width=&quot;500&quot; height=&quot;200&quot;/&gt;&lt;/li&gt;</code><br>      <code>&lt;li&gt;&lt;img src=&quot;&quot; width=&quot;500&quot; height=&quot;200&quot;/&gt;&lt;/li&gt;</code><br>    <code>&lt;/ul&gt;</code><br>    <code>&lt;ol&gt;&lt;/ol&gt;   &lt;!--存放和图片对应的列表--&gt;</code><br> <code>&lt;/div&gt;</code><br> <code>&lt;div id=&quot;arr&quot;&gt;</code><br><code>&lt;span id=&quot;left&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span id=&quot;right&quot;&gt;&amp;gt;&lt;/span&gt;</code><br><code>&lt;/div&gt; &lt;!--存放左右箭头--&gt;</code><br><code>&lt;/div&gt;</code></p>
+<h1 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h1><p> <code>*{</code><br>     <code>padding: 0;</code><br>      <code>margin: 0;</code><br>      <code>list-style: none;</code><br>      <code>border: 0;</code><br>    <code>}</code></p>
+<pre><code>.all {
+  width: 500px;//和图片宽高保持一致
+  height: 200px;
+  padding: 7px;
+  border: 1px solid #ccc;
+  margin: 100px auto;
+  position: relative;
 }
 
-.btn{
-    width:100%;
+.screen {
+  width: 500px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
 }
 
-  input{
-    font-size: larger;
-    margin-left:47.5%;
-    margin-top: 10px;
+.screen li {
+  width: 500px;//和图片宽高保持一致
+  height: 200px;
+  overflow: hidden;
+  float: left;
 }
 
-.btn div{
-    width:100px;
-    height:30px;
-    margin-left:20px;
-    margin-top:30px;
-    float:left;
-    background-color: green;
-    text-align: center;
-
+.screen ul {
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 3000px;
 }
 
-h1 {
-    color:rgb(201, 18, 79) ;
-    text-align:center
-}
-</code></pre><h3 id="颜色和样式可自行设置，这里本来想用伸缩盒子做一下的，后来想了一下，完全没必要，只要将存放名字的大盒子div的宽度设置为页面宽度就行了，无论我们怎么缩放页面，div盒子都会跟页面宽度一致。"><a href="#颜色和样式可自行设置，这里本来想用伸缩盒子做一下的，后来想了一下，完全没必要，只要将存放名字的大盒子div的宽度设置为页面宽度就行了，无论我们怎么缩放页面，div盒子都会跟页面宽度一致。" class="headerlink" title="颜色和样式可自行设置，这里本来想用伸缩盒子做一下的，后来想了一下，完全没必要，只要将存放名字的大盒子div的宽度设置为页面宽度就行了，无论我们怎么缩放页面，div盒子都会跟页面宽度一致。"></a>颜色和样式可自行设置，这里本来想用伸缩盒子做一下的，后来想了一下，完全没必要，只要将存放名字的大盒子<code>div</code>的宽度设置为页面宽度就行了，无论我们怎么缩放页面，<code>div</code>盒子都会跟页面宽度一致。</h3><h2 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a><code>js</code>代码</h2><pre><code>var flag=true;//设置节流阀
-
-document.getElementById(&apos;start&apos;).onclick=function(){
-    if(flag==true){
-      flag=false;//关闭节流阀，防止多次点击触发多个定时器
-      timeId=setInterval(function(){//定时器不能定义为局部变量，否则不能被clearInterval读取到，也不能被清除
-      var c=parseInt(Math.random()*15)//通过随机数方法随机点名
-      document.getElementsByClassName(&apos;btn&apos;)[0].children[c].style.backgroundColor=&apos;red&apos;;
-      for(i=0;i&lt;document.getElementsByClassName(&apos;btn&apos;)[0].children.length;i++){
-          if(i!=c){
-              document.getElementsByClassName(&apos;btn&apos;)[0].children[i].style.backgroundColor=&apos;green&apos;;
-          }
-
-      } //其他兄弟元素设置为原来的颜色，这里用Jquery的siblings方法会更方便一些
-    },100)
-    }
-
+.all ol {
+  position: absolute;
+  left: 200px;
+  bottom: 10px;
 }
 
-document.getElementById(&apos;end&apos;).onclick=function(){
-    clearInterval(timeId);
-    flag=true//清除定时器后打开节流阀
+.all ol li {
+  float: left;
+  width: 10px;
+  height: 10px;
+  border-radius:50%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+  cursor: pointer;
 }
-</code></pre><h3 id="我这里采用的是直接在页面上放置div元素，也可以通过js代码操作dom在页面上添加div子节点。但是因为操作dom太麻烦了，学完vue之后，就不用直接操作dom了，所以我这里并没有操作dom。"><a href="#我这里采用的是直接在页面上放置div元素，也可以通过js代码操作dom在页面上添加div子节点。但是因为操作dom太麻烦了，学完vue之后，就不用直接操作dom了，所以我这里并没有操作dom。" class="headerlink" title="我这里采用的是直接在页面上放置div元素，也可以通过js代码操作dom在页面上添加div子节点。但是因为操作dom太麻烦了，学完vue之后，就不用直接操作dom了，所以我这里并没有操作dom。"></a>我这里采用的是直接在页面上放置<code>div</code>元素，也可以通过<code>js</code>代码操作<code>dom</code>在页面上添加<code>div</code>子节点。但是因为操作dom太麻烦了，学完vue之后，就不用直接操作dom了，所以我这里并没有操作dom。</h3>
+
+.all ol li.current {
+  background: #DB192A;
+}
+
+#arr {
+  display: none;//左右箭头默认不显示
+}
+
+#arr span {
+  //设置span的公共样式
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  margin-top: -20px;
+  background: #000;
+  cursor: pointer;
+  line-height: 40px;
+  text-align: center;
+  font-weight: bold;
+  font-family: &apos;黑体&apos;;
+  font-size: 30px;
+  color: #fff;
+  opacity: 0.3;
+  border: 1px solid #fff;
+}
+
+#arr #right {
+  //重新设置右箭头的位置
+  right: 5px;
+  left: auto;
+}
+</code></pre><h1 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h1><h2 id="1-获取所有的元素"><a href="#1-获取所有的元素" class="headerlink" title="1 获取所有的元素"></a>1 获取所有的元素</h2><p><code>//获取最外面的div</code><br>  <code>var box = document.getElementById(&quot;box&quot;);</code><br>  <code>//获取相框</code><br>  <code>var screen = box.children[0];</code><br>  <code>//获取相框的宽度</code><br>  <code>var imgWidth = screen.offsetWidth;</code><br>  <code>//获取ul</code><br>  <code>var ulObj = screen.children[0];</code><br>  <code>//获取ul中的所有的li</code><br>  <code>var list = ulObj.children;</code><br>  <code>//获取ol</code><br>  <code>var olObj = screen.children[1];</code><br>  <code>//左右箭头的div</code><br>  <code>var arr = document.getElementById(&quot;arr&quot;);</code></p>
+<h2 id="2-处理鼠标进入小圆点时图片的跳转"><a href="#2-处理鼠标进入小圆点时图片的跳转" class="headerlink" title="2 处理鼠标进入小圆点时图片的跳转"></a>2 处理鼠标进入小圆点时图片的跳转</h2><p> <code>var pic = 0;//全局变量,存储指定小圆点前照片的个数</code><br>  <code>//创建小圆点----根据ul中的li个数</code><br>  <code>for (var i = 0; i &lt; list.length; i++) {</code><br>    <code>var liObj = document.createElement(&quot;li&quot;);</code><br>    <code>olObj.appendChild(liObj);</code><br>    <code>//在每个ol中的li标签上添加一个自定义属性,存储索引值</code><br>    <code>liObj.setAttribute(&quot;index&quot;, i);</code></p>
+<pre><code>`//注册鼠标进入事件`
+`liObj.onmouseover = function () {`
+ ` //先干掉所有的ol中的li的背景颜色`
+  `for (var j = 0; j &lt; olObj.children.length; j++) {`
+   ` olObj.children[j].removeAttribute(&quot;class&quot;);`
+ ` }`
+  `//设置当前鼠标进来的li的背景颜色`
+  `this.className = &quot;current&quot;;`
+  `//获取鼠标进入的li的当前索引值`
+ ` pic = this.getAttribute(&quot;index&quot;);`
+  `//移动ul`
+  `animate(ulObj, -pic * imgWidth);`
+`};`
+</code></pre><p>  <code>}</code><br>  <code>//设置默认ol中第一个li有背景颜色</code><br> <code>olObj.children[0].className = &quot;current&quot;;</code></p>
+<p>  <code>//克隆一个ul中第一个li,加入到ul中的最后=====克隆</code><br>  <code>ulObj.appendChild(ulObj.children[0].cloneNode(true));</code></p>
+<h2 id="3-自动播放"><a href="#3-自动播放" class="headerlink" title="3 自动播放"></a>3 自动播放</h2><p> <code>var timeId= setInterval(clickHandle,1000);</code></p>
+<p> <code>//鼠标进入到box的div显示左右箭头的div</code><br>  <code>box.onmouseover = function () {</code><br>    <code>arr.style.display = &quot;block&quot;;</code><br>    <code>//鼠标进入停止定时器</code><br>    <code>clearInterval(timeId);</code><br>  <code>};</code><br>  <code>//鼠标离开到box的div隐藏左右箭头的div</code><br>  <code>box.onmouseout = function () {</code><br>    <code>arr.style.display = &quot;none&quot;;</code><br>    <code>//鼠标离开自动播放</code><br>   <code>timeId= setInterval(clickHandle,1000);</code><br>  <code>};</code></p>
+<h2 id="4-左右按钮"><a href="#4-左右按钮" class="headerlink" title="4 左右按钮"></a>4 左右按钮</h2><p> <code>//右边按钮</code><br>  <code>document.getElementById(&quot;right&quot;).onclick =clickHandle;</code></p>
+<p>  <code>//左边按钮</code><br>  <code>my$(&quot;left&quot;).onclick = function () {</code><br>   <code>if (pic == 0) {</code><br>     <code>pic = 5;</code><br>      <code>ulObj.style.left = -pic * imgWidth + &quot;px&quot;;</code><br>   <code>}</code><br>    <code>pic--;</code><br>    <code>animate(ulObj, -pic * imgWidth);</code><br>    <code>for (var i = 0; i &lt; olObj.children.length; i++) {</code><br>      <code>olObj.children[i].removeAttribute(&quot;class&quot;);</code><br>    <code>}</code><br>    <code>olObj.children[pic].className = &quot;current&quot;;</code></p>
+<p> <code>};</code></p>
+<h2 id="事件处理函数"><a href="#事件处理函数" class="headerlink" title="事件处理函数"></a>事件处理函数</h2><p>   <code>function clickHandle() {</code><br>    <code>if (pic == list.length - 1) {</code><br>      <code>//如何从第5个图,跳转到第一个图</code><br>     <code>pic = 0;</code><br>      <code>ulObj.style.left = 0 + &quot;px&quot;;//把ul的位置还原成开始的默认位置</code><br>    <code>}</code><br>    <code>pic++;//立刻设置pic加1,那么此时用户就会看到第二个图片了</code><br>    <code>animate(ulObj, -pic * imgWidth);//pic从0的值加1之后,pic的值是1,然后ul移动出去一个图片</code></p>
+<pre><code>if (pic == list.length - 1) {
+  //第4个按钮颜色干掉
+  olObj.children[olObj.children.length - 1].className = &quot;&quot;;
+  //第1个按钮颜色设置上
+  olObj.children[0].className = &quot;current&quot;;
+} else {
+  //去掉所有的小圆点的背景颜色
+  for (var i = 0; i &lt; olObj.children.length; i++) {
+    olObj.children[i].removeAttribute(&quot;class&quot;); 
+ olObj.children[pic].className = &quot;current&quot;;
+}
+</code></pre><p>  <code>};</code></p>
+<h2 id="设置任意的一个元素-移动到指定的目标位置-动画函数"><a href="#设置任意的一个元素-移动到指定的目标位置-动画函数" class="headerlink" title="设置任意的一个元素,移动到指定的目标位置(动画函数)"></a>设置任意的一个元素,移动到指定的目标位置(动画函数)</h2><p>  <code>function animate(element, target) {</code><br>    <code>clearInterval(element.timeId);</code><br>    <code>element.timeId = setInterval(function () {</code><br>      <code>//获取元素的当前的位置,数字类型</code><br>     <code>var current = element.offsetLeft;</code><br>      <code>//每次移动的距离</code><br>      <code>var step = 10;</code><br>     <code>step = current &lt; target ? step : -step;</code><br>      <code>//当前移动到位置</code><br>      <code>current += step;</code><br>      <code>if (Math.abs(current - target) &gt; Math.abs(step)) {</code><br>        <code>element.style.left = current + &quot;px&quot;;</code><br>      <code>} else {</code><br>        <code>//清理定时器</code><br>        <code>clearInterval(element.timeId);</code><br>        <code>//直接到达目标</code><br>        <code>element.style.left = target + &quot;px&quot;;</code><br>      <code>}</code><br>    <code>}, 10);</code><br>  <code>}</code></p>
+<p>使用<code>js</code>麻烦的地方在于得自己封装函数，然后才能调用，且业务逻辑较复杂，但对于基础学习来说是很重要的。</p>
+
       
     </main>
     <footer class="post-footer">
@@ -228,7 +274,7 @@ document.getElementById(&apos;end&apos;).onclick=function(){
   
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -251,7 +297,7 @@ document.getElementById(&apos;end&apos;).onclick=function(){
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">8</a></div>
+      <div><a href="/archives/">9</a></div>
     </div>
     
     

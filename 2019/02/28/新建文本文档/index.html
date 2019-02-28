@@ -71,7 +71,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>归档 | lxs</title>
+    <title>判断一个字符串是否是另一个字符串的子字符串 | lxs</title>
   </head>
   <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -105,38 +105,65 @@
         <div class="main-container">
           <div class="content">
             
-<div id="archive" class="archive page">
-  <h1 class="page-title">归档</h1>
-  <h2 class="page-counter">
-    
-    你已经写了 9 篇文章！
-    
-  </h2>
-  
-  
-  
-  
-  <h2 class="page-title">2019
+<div id="post" class="page">
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/01/22/jquery轮播图/" itemprop="url">利用Jquery实现轮播图</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-22T19:12:28+08:00">01-22</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/新建文本文档/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Lxs">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/panda.png">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="lxs">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">判断一个字符串是否是另一个字符串的子字符串</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-28T21:07:29+08:00">2019-02-28 21:07:29</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+        </span>
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>判断两个字符串的关系时，可以在长字符串中截取与短字符串相等长度的字符串进行比较，看下面代码：<br> <code>function judge(son,father){</code><br>      for(i=0;i&lt;father.length;i++){<br>          if(son[0]==father[i]){<br>            return father.slice(i,i+son.length)==son;<br>          }<br>      }</p>
+<p> <code>}</code> </p>
+<p>document.writeln(judge(‘ab’,’abc’))</p>
+
+    </main>
+    <footer class="post-footer">
+      
+    </footer>
   </article>
   
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/6/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/archives/page/8/">8</a><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/8/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/02/21/实现元素内容居中/" rel="next" title="用CSS实现元素内容居中"><i class="fas fa-angle-left"></i><span class="nav-title">用CSS实现元素内容居中</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
   </nav>
   
-</h2></div>
+  
+</div>
 
           </div>
           
@@ -178,6 +205,11 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
     
     
     <hr>

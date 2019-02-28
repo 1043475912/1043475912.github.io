@@ -110,7 +110,7 @@
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/实现元素内容居中/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/新建文本文档/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Lxs">
         <meta itemprop="description" content="">
@@ -122,12 +122,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/02/21/实现元素内容居中/" itemprop="url">用CSS实现元素内容居中</a>
+        <a class="post-title-link post-title-link-external" href="/2019/02/28/新建文本文档/" itemprop="url">判断一个字符串是否是另一个字符串的子字符串</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-21T21:30:04+08:00">2019-02-21 21:30:04</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-28T21:07:29+08:00">2019-02-28 21:07:29</time></span>
         </span>
         
         
@@ -136,7 +136,7 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
         </span>
         
         
@@ -144,12 +144,9 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <h1 id="1-水平居中"><a href="#1-水平居中" class="headerlink" title="1.水平居中"></a>1.水平居中</h1><p>##实现水平居中是最简单的，文本内容直接居中即可<br><code>div{</code><br>    <code>width:300px;</code><br>    <code>height:300px;</code><br>    <code>text-align:center;</code><br>    <code>border: 1px solid black;</code><br><code>}</code></p>
-<h1 id="2-垂直居中"><a href="#2-垂直居中" class="headerlink" title="2.垂直居中"></a>2.垂直居中</h1><p>##实现垂直居中只介绍比较简单的3种方法，毕竟本人只是菜鸟一枚(TmT)</p>
-<p>##2.1 设置行高与元素高度一致(只适用于1行内容)<br><code>div{</code><br>    <code>width:300px;</code><br>    <code>height:300px;</code><br>    <code>line-height:300px;</code><br>    <code>border: 1px solid black;</code><br><code>}</code></p>
-<p>##2.2 根据高度控制内边距<br><code>div{</code><br>    <code>width:300px;</code><br>    <code>height:300px;</code><br>    <code>padding-top:140px; //这里大家可自行更改数值使之居中</code><br>    <code>border: 1px solid black;</code><br><code>}</code></p>
-<p>##2.3 css动画实现（将内容放入p标签中）<br><code>div{</code><br>    <code>position: relative;</code><br>    <code>width: 300px;</code><br>    <code>height: 300px;</code><br>    <code>border: 1px solid red;</code></p>
-<p><code>}</code><br><code>p{</code><br>   <code>position: absolute;</code><br>   <code>width: 150px;</code><br>   <code>top: 50%;</code><br>   <code>left:50%;</code><br>   <code>transform: translate(-50%,-50%);</code><br>   <code>border: 1px solid black;</code><br> }</p>
+      <p>判断两个字符串的关系时，可以在长字符串中截取与短字符串相等长度的字符串进行比较，看下面代码：<br> <code>function judge(son,father){</code><br>      for(i=0;i&lt;father.length;i++){<br>          if(son[0]==father[i]){<br>            return father.slice(i,i+son.length)==son;<br>          }<br>      }</p>
+<p> <code>}</code> </p>
+<p>document.writeln(judge(‘ab’,’abc’))</p>
 
       
     </main>
@@ -160,7 +157,7 @@
   
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -183,7 +180,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">8</a></div>
+      <div><a href="/archives/">9</a></div>
     </div>
     
     
