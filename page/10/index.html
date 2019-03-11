@@ -71,7 +71,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>归档 | lxs</title>
+    <title>lxs</title>
   </head>
   <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -105,38 +105,134 @@
         <div class="main-container">
           <div class="content">
             
-<div id="archive" class="archive page">
-  <h1 class="page-title">归档</h1>
-  <h2 class="page-counter">
-    
-    你已经写了 10 篇文章！
-    
-  </h2>
-  
-  
-  
-  
-  <h2 class="page-title">2019
+
+<div id="index" class="index page">
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/01/23/3D轮播图/" itemprop="url">利用三维变换实现轮播图</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-23T21:59:08+08:00">01-23</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/点名器/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Lxs">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/panda.png">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="lxs">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/01/22/点名器/" itemprop="url">利用css布局和定时器实现简单的点名器</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-22T16:41:23+08:00">2019-01-22 16:41:23</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+        </span>
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <p><code>css</code>布局时本来想用表格或者列表来存放每个名字，后来发现不能实现元素之间边距，无奈，只能用<code>div</code>存放.用定时器实现就比较简单了，具体看代码</p>
+<h1 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a><code>html</code>代码</h1><pre><code>&lt;h1&gt;点名器&lt;/h1&gt;
+</code></pre><p>  <code>&lt;input type=&quot;button&quot; value=&quot;开始&quot; id=&quot;start&quot;&gt;</code></p>
+<p>  <code>&lt;input type=&quot;button&quot; value=&quot;结束&quot; id=&quot;end&quot;&gt;</code></p>
+<pre><code> &lt;div class=&quot;btn&quot;&gt;
+       &lt;div&gt;1&lt;/div&gt;
+       &lt;div&gt;2&lt;/div&gt;
+       &lt;div&gt;3&lt;/div&gt;
+       &lt;div&gt;4&lt;/div&gt;
+       &lt;div&gt;5&lt;/div&gt;
+       &lt;div&gt;6&lt;/div&gt;
+       &lt;div&gt;7&lt;/div&gt;
+       &lt;div&gt;8&lt;/div&gt;
+       &lt;div&gt;9&lt;/div&gt;
+       &lt;div&gt;10&lt;/div&gt;
+       &lt;div&gt;11&lt;/div&gt;
+       &lt;div&gt;12&lt;/div&gt;
+       &lt;div&gt;13&lt;/div&gt;
+       &lt;div&gt;14&lt;/div&gt;
+       &lt;div&gt;15&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h2 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a><code>css</code>代码</h2><pre><code>*{
+    margin:0px;
+    padding: 0px;
+}
+
+.btn{
+    width:100%;
+}
+
+  input{
+    font-size: larger;
+    margin-left:47.5%;
+    margin-top: 10px;
+}
+
+.btn div{
+    width:100px;
+    height:30px;
+    margin-left:20px;
+    margin-top:30px;
+    float:left;
+    background-color: green;
+    text-align: center;
+
+}
+
+h1 {
+    color:rgb(201, 18, 79) ;
+    text-align:center
+}
+</code></pre><h3 id="颜色和样式可自行设置，这里本来想用伸缩盒子做一下的，后来想了一下，完全没必要，只要将存放名字的大盒子div的宽度设置为页面宽度就行了，无论我们怎么缩放页面，div盒子都会跟页面宽度一致。"><a href="#颜色和样式可自行设置，这里本来想用伸缩盒子做一下的，后来想了一下，完全没必要，只要将存放名字的大盒子div的宽度设置为页面宽度就行了，无论我们怎么缩放页面，div盒子都会跟页面宽度一致。" class="headerlink" title="颜色和样式可自行设置，这里本来想用伸缩盒子做一下的，后来想了一下，完全没必要，只要将存放名字的大盒子div的宽度设置为页面宽度就行了，无论我们怎么缩放页面，div盒子都会跟页面宽度一致。"></a>颜色和样式可自行设置，这里本来想用伸缩盒子做一下的，后来想了一下，完全没必要，只要将存放名字的大盒子<code>div</code>的宽度设置为页面宽度就行了，无论我们怎么缩放页面，<code>div</code>盒子都会跟页面宽度一致。</h3><h2 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a><code>js</code>代码</h2><pre><code>var flag=true;//设置节流阀
+
+document.getElementById(&apos;start&apos;).onclick=function(){
+    if(flag==true){
+      flag=false;//关闭节流阀，防止多次点击触发多个定时器
+      timeId=setInterval(function(){//定时器不能定义为局部变量，否则不能被clearInterval读取到，也不能被清除
+      var c=parseInt(Math.random()*15)//通过随机数方法随机点名
+      document.getElementsByClassName(&apos;btn&apos;)[0].children[c].style.backgroundColor=&apos;red&apos;;
+      for(i=0;i&lt;document.getElementsByClassName(&apos;btn&apos;)[0].children.length;i++){
+          if(i!=c){
+              document.getElementsByClassName(&apos;btn&apos;)[0].children[i].style.backgroundColor=&apos;green&apos;;
+          }
+
+      } //其他兄弟元素设置为原来的颜色，这里用Jquery的siblings方法会更方便一些
+    },100)
+    }
+
+}
+
+document.getElementById(&apos;end&apos;).onclick=function(){
+    clearInterval(timeId);
+    flag=true//清除定时器后打开节流阀
+}
+</code></pre><h3 id="我这里采用的是直接在页面上放置div元素，也可以通过js代码操作dom在页面上添加div子节点。但是因为操作dom太麻烦了，学完vue之后，就不用直接操作dom了，所以我这里并没有操作dom。"><a href="#我这里采用的是直接在页面上放置div元素，也可以通过js代码操作dom在页面上添加div子节点。但是因为操作dom太麻烦了，学完vue之后，就不用直接操作dom了，所以我这里并没有操作dom。" class="headerlink" title="我这里采用的是直接在页面上放置div元素，也可以通过js代码操作dom在页面上添加div子节点。但是因为操作dom太麻烦了，学完vue之后，就不用直接操作dom了，所以我这里并没有操作dom。"></a>我这里采用的是直接在页面上放置<code>div</code>元素，也可以通过<code>js</code>代码操作<code>dom</code>在页面上添加<code>div</code>子节点。但是因为操作dom太麻烦了，学完vue之后，就不用直接操作dom了，所以我这里并没有操作dom。</h3>
+      
+    </main>
+    <footer class="post-footer">
+      
+    </footer>
   </article>
   
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/01/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/01/page/4/">4</a><a class="extend next" rel="next" href="/archives/2019/01/page/2/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
   </nav>
   
-</h2></div>
+  
+</div>
 
           </div>
           

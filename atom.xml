@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-28T13:34:21.329Z</updated>
+  <updated>2019-03-11T05:56:13.172Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,19 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>判断一个字符串是否是另一个字符串的子字符串</title>
-    <link href="http://yoursite.com/2019/02/28/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/"/>
-    <id>http://yoursite.com/2019/02/28/新建文本文档/</id>
-    <published>2019-02-28T13:07:29.095Z</published>
-    <updated>2019-02-28T13:34:21.329Z</updated>
+    <title>web存储两种方式的异同</title>
+    <link href="http://yoursite.com/2019/03/11/web%E5%AD%98%E5%82%A8/"/>
+    <id>http://yoursite.com/2019/03/11/web存储/</id>
+    <published>2019-03-11T05:45:15.629Z</published>
+    <updated>2019-03-11T05:56:13.172Z</updated>
     
-    <content type="html"><![CDATA[<p>判断两个字符串的关系时，可以在长字符串中截取与短字符串相等长度的字符串进行比较，看下面代码：<br> <code>function judge(son,father){</code><br>      for(i=0;i&lt;father.length;i++){<br>          if(son[0]==father[i]){<br>            return father.slice(i,i+son.length)==son;<br>          }<br>      }</p><p> <code>}</code> </p><p>document.writeln(judge(‘ab’,’abc’))</p>]]></content>
+    <content type="html"><![CDATA[<p>##localStorage<br>localStorage存储的数据是存储在硬盘上的，能存储20M左右，它可以跨页面访问，但不能跨浏览器访问，生命周期是永久，只能手动清除</p><p>#设置<br><code>localStorage.setItem(&#39;username&#39;,&#39;Tom&#39;)</code></p><p>#获取<br><code>localStorage.getItem(&#39;username&#39;)</code></p><p>#清除<br><code>localStorage.removeItem(&#39;username&#39;)</code></p><p>##sessionStorage<br>sessionStorage是存储在当前页面中的，能存5M左右，不能跨页面更不能跨浏览器访问，生命周期是页面存在的时间，关闭页面清除</p><p>#设置<br><code>sessionStorage.setItem(&#39;username&#39;,&#39;Tom&#39;)</code></p><p>#获取<br><code>sessionStorage.getItem(&#39;username&#39;)</code></p><p>#清除<br><code>sessionStorage.removeItem(&#39;username&#39;)</code></p><p>##以上两种存储方式都比cookie存储数据量要大，cookie存储量只有4k左右</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;判断两个字符串的关系时，可以在长字符串中截取与短字符串相等长度的字符串进行比较，看下面代码：&lt;br&gt; &lt;code&gt;function judge(son,father){&lt;/code&gt;&lt;br&gt;      for(i=0;i&amp;lt;father.length;i++){&lt;br&gt;
+        &lt;p&gt;##localStorage&lt;br&gt;localStorage存储的数据是存储在硬盘上的，能存储20M左右，它可以跨页面访问，但不能跨浏览器访问，生命周期是永久，只能手动清除&lt;/p&gt;
+&lt;p&gt;#设置&lt;br&gt;&lt;code&gt;localStorage.setItem(&amp;#39;user
+      
+    
+    </summary>
+    
+      <category term="HTML5" scheme="http://yoursite.com/categories/HTML5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>判断一个字符串是否是另一个字符串的子字符串</title>
+    <link href="http://yoursite.com/2019/02/28/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/"/>
+    <id>http://yoursite.com/2019/02/28/新建文本文档/</id>
+    <published>2019-02-28T13:07:29.095Z</published>
+    <updated>2019-02-28T13:41:14.768Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="判断两个字符串的关系时，可以在长字符串中截取与短字符串相等长度的字符串进行比较，看下面代码："><a href="#判断两个字符串的关系时，可以在长字符串中截取与短字符串相等长度的字符串进行比较，看下面代码：" class="headerlink" title="判断两个字符串的关系时，可以在长字符串中截取与短字符串相等长度的字符串进行比较，看下面代码："></a>判断两个字符串的关系时，可以在长字符串中截取与短字符串相等长度的字符串进行比较，看下面代码：</h2><p> <code>function judge(son,father){</code><br>       &emsp;<code>for(i=0;i&lt;father.length;i++){</code><br>           &emsp; &emsp;<code>if(son[0]==father[i]){</code><br>             &emsp; &emsp;<code>return father.slice(i,i+son.length)==son;</code><br>          &emsp; &emsp; &emsp; <code>}</code><br>       &emsp; &emsp;<code>}</code></p><p> <code>}</code> </p><p><code>document.writeln(judge(&#39;ab&#39;,&#39;abc&#39;))</code></p><h2 id="另外一种比较简单的方法就是判断短字符串在长字符串中的位置"><a href="#另外一种比较简单的方法就是判断短字符串在长字符串中的位置" class="headerlink" title="另外一种比较简单的方法就是判断短字符串在长字符串中的位置"></a>另外一种比较简单的方法就是判断短字符串在长字符串中的位置</h2><p><code>document.writeln(&#39;abc&#39;.indexOf(&#39;ab&#39;)&gt;-1?true:false)</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;判断两个字符串的关系时，可以在长字符串中截取与短字符串相等长度的字符串进行比较，看下面代码：&quot;&gt;&lt;a href=&quot;#判断两个字符串的关系时，可以在长字符串中截取与短字符串相等长度的字符串进行比较，看下面代码：&quot; class=&quot;headerlink&quot; title=&quot;
       
     
     </summary>

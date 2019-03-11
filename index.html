@@ -110,7 +110,7 @@
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/新建文本文档/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/web存储/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Lxs">
         <meta itemprop="description" content="">
@@ -122,12 +122,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/02/28/新建文本文档/" itemprop="url">判断一个字符串是否是另一个字符串的子字符串</a>
+        <a class="post-title-link post-title-link-external" href="/2019/03/11/web存储/" itemprop="url">web存储两种方式的异同</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-28T21:07:29+08:00">2019-02-28 21:07:29</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-03-11T13:45:15+08:00">2019-03-11 13:45:15</time></span>
         </span>
         
         
@@ -136,7 +136,7 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/HTML5/" itemprop="url" rel="index"><span itemprop="name">HTML5</span></a></span>
         </span>
         
         
@@ -144,9 +144,15 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <p>判断两个字符串的关系时，可以在长字符串中截取与短字符串相等长度的字符串进行比较，看下面代码：<br> <code>function judge(son,father){</code><br>      for(i=0;i&lt;father.length;i++){<br>          if(son[0]==father[i]){<br>            return father.slice(i,i+son.length)==son;<br>          }<br>      }</p>
-<p> <code>}</code> </p>
-<p>document.writeln(judge(‘ab’,’abc’))</p>
+      <p>##localStorage<br>localStorage存储的数据是存储在硬盘上的，能存储20M左右，它可以跨页面访问，但不能跨浏览器访问，生命周期是永久，只能手动清除</p>
+<p>#设置<br><code>localStorage.setItem(&#39;username&#39;,&#39;Tom&#39;)</code></p>
+<p>#获取<br><code>localStorage.getItem(&#39;username&#39;)</code></p>
+<p>#清除<br><code>localStorage.removeItem(&#39;username&#39;)</code></p>
+<p>##sessionStorage<br>sessionStorage是存储在当前页面中的，能存5M左右，不能跨页面更不能跨浏览器访问，生命周期是页面存在的时间，关闭页面清除</p>
+<p>#设置<br><code>sessionStorage.setItem(&#39;username&#39;,&#39;Tom&#39;)</code></p>
+<p>#获取<br><code>sessionStorage.getItem(&#39;username&#39;)</code></p>
+<p>#清除<br><code>sessionStorage.removeItem(&#39;username&#39;)</code></p>
+<p>##以上两种存储方式都比cookie存储数据量要大，cookie存储量只有4k左右</p>
 
       
     </main>
@@ -157,7 +163,7 @@
   
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -180,7 +186,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">9</a></div>
+      <div><a href="/archives/">10</a></div>
     </div>
     
     
