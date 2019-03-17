@@ -140,8 +140,9 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p>#给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释<br><figure class="hljs highlight plain"><figcaption><span>arr</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs var">var arr1=[],flag=arr.length<br>for(i=0;i&lt;flag;i++)&#123;<br>  var a=Math.floor(Math.random()*arr.length)<br>  arr1.push(arr.splice(a,1))<br>&#125;<br>console.log(arr1)<br></code></pre></td></tr></table></figure></p>
-
+      <h2 id="给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释"><a href="#给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释" class="headerlink" title="给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释"></a>给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释</h2><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined">var arr=[1,2,3,4,5,6,7,8,9,10]<br>var arr1=[],flag=arr.length<br>for(i=0;i&lt;flag;i++)&#123;<br>  var a=Math.floor(Math.random()*arr.length)<br>  arr1.push(arr.splice(a,1))<br>&#125;<br>console.log(arr1)<br></code></pre></td></tr></table></figure>
+<p>原来我的思想用数组自带的方法reverse，pop，push，shift，unshift等方法，但那样操作只能每次打乱两个元素，我们可以利用数组长度的可变性和随机数来实现。</p>
+<h1 id="1-我们先抛一个0到数组长度-1之间的随机数，将随机数下标的元素压入一个新数组中，此时数组长度会减1，后面的元素会依次补上空位"><a href="#1-我们先抛一个0到数组长度-1之间的随机数，将随机数下标的元素压入一个新数组中，此时数组长度会减1，后面的元素会依次补上空位" class="headerlink" title="1.我们先抛一个0到数组长度-1之间的随机数，将随机数下标的元素压入一个新数组中，此时数组长度会减1，后面的元素会依次补上空位"></a>1.我们先抛一个0到数组长度-1之间的随机数，将随机数下标的元素压入一个新数组中，此时数组长度会减1，后面的元素会依次补上空位</h1><h1 id="2-再次调用随机数时，随机数范围会减小，即使取的随机数相同，随机数下标下的数组元素也不相同，调用arr-length次随机数后arr的元素全部乱序压入arr1中"><a href="#2-再次调用随机数时，随机数范围会减小，即使取的随机数相同，随机数下标下的数组元素也不相同，调用arr-length次随机数后arr的元素全部乱序压入arr1中" class="headerlink" title="2.再次调用随机数时，随机数范围会减小，即使取的随机数相同，随机数下标下的数组元素也不相同，调用arr.length次随机数后arr的元素全部乱序压入arr1中"></a>2.再次调用随机数时，随机数范围会减小，即使取的随机数相同，随机数下标下的数组元素也不相同，调用arr.length次随机数后arr的元素全部乱序压入arr1中</h1>
     </main>
     <footer class="post-footer">
       
@@ -207,6 +208,12 @@
     
     
     
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释"><span class="toc-text">给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释</span></a></li></ol><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#1-我们先抛一个0到数组长度-1之间的随机数，将随机数下标的元素压入一个新数组中，此时数组长度会减1，后面的元素会依次补上空位"><span class="toc-text">1.我们先抛一个0到数组长度-1之间的随机数，将随机数下标的元素压入一个新数组中，此时数组长度会减1，后面的元素会依次补上空位</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#2-再次调用随机数时，随机数范围会减小，即使取的随机数相同，随机数下标下的数组元素也不相同，调用arr-length次随机数后arr的元素全部乱序压入arr1中"><span class="toc-text">2.再次调用随机数时，随机数范围会减小，即使取的随机数相同，随机数下标下的数组元素也不相同，调用arr.length次随机数后arr的元素全部乱序压入arr1中</span></a></li></div>
+    </div>
     
     
     
