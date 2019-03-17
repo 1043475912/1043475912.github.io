@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-11T06:00:37.250Z</updated>
+  <updated>2019-03-17T11:03:51.524Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数组乱序</title>
+    <link href="http://yoursite.com/2019/03/17/%E6%95%B0%E7%BB%84%E4%B9%B1%E5%BA%8F/"/>
+    <id>http://yoursite.com/2019/03/17/数组乱序/</id>
+    <published>2019-03-17T11:01:29.101Z</published>
+    <updated>2019-03-17T11:03:51.524Z</updated>
+    
+    <content type="html"><![CDATA[<p>#给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释<br><figure class="hljs highlight plain"><figcaption><span>arr</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs var">var arr1=[],flag=arr.length<br>for(i=0;i&lt;flag;i++)&#123;<br>  var a=Math.floor(Math.random()*arr.length)<br>  arr1.push(arr.splice(a,1))<br>&#125;<br>console.log(arr1)<br></code></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释&lt;br&gt;&lt;figure class=&quot;hljs highlight plain&quot;&gt;&lt;figcaption&gt;&lt;span&gt;arr&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu
+      
+    
+    </summary>
+    
+      <category term="JS" scheme="http://yoursite.com/categories/JS/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>web存储两种方式的异同</title>

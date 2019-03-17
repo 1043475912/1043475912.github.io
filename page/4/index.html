@@ -110,7 +110,7 @@
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/css实现几何图形/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/实现元素内容居中/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Lxs">
         <meta itemprop="description" content="">
@@ -122,12 +122,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/02/21/css实现几何图形/" itemprop="url">用CSS实现各种几何图形</a>
+        <a class="post-title-link post-title-link-external" href="/2019/02/21/实现元素内容居中/" itemprop="url">用CSS实现元素内容居中</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-21T20:16:50+08:00">2019-02-21 20:16:50</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-21T21:30:04+08:00">2019-02-21 21:30:04</time></span>
         </span>
         
         
@@ -144,12 +144,12 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <h1 id="1-矩形"><a href="#1-矩形" class="headerlink" title="1.矩形"></a>1.矩形</h1><p>##实现矩形是最简单的，只需设置块元素的宽高和颜色即可<br><code>div{</code><br><code>width:100px;</code><br><code>height:200px;</code><br><code>background-color:blue;</code></p>
-<p><code>}</code></p>
-<h1 id="2-三角形"><a href="#2-三角形" class="headerlink" title="2.三角形"></a>2.三角形</h1><p>##实现三角形只需将元素的宽高和内填充设为0，只剩边框即可<br><code>div{</code><br><code>width:0px;</code><br><code>height:0px;</code><br><code>border-width:5px;</code><br><code>border-style:solid;</code><br><code>border-color:blue red green skyblue</code><br><code>}</code></p>
-<p>##如果只想要1个三角形，将其他3个边框的颜色变成透明(transparent)即可</p>
-<h1 id="3-圆形（椭圆形）"><a href="#3-圆形（椭圆形）" class="headerlink" title="3.圆形（椭圆形）"></a>3.圆形（椭圆形）</h1><p>##实现圆形（椭圆形）只需控制元素的四个角的圆角圆心位置即可<br><code>div{</code><br><code>width:100px;</code><br><code>height:100px;</code><br><code>border-radius:50%/50%;</code><br><code>}</code></p>
-<p>##div为正方形时可画圆，为矩形时可画椭圆。由此也可延伸出画半圆，1/4圆等，比较简单，这里不详述了。</p>
+      <h1 id="1-水平居中"><a href="#1-水平居中" class="headerlink" title="1.水平居中"></a>1.水平居中</h1><p>##实现水平居中是最简单的，文本内容直接居中即可<br><code>div{</code><br>    <code>width:300px;</code><br>    <code>height:300px;</code><br>    <code>text-align:center;</code><br>    <code>border: 1px solid black;</code><br><code>}</code></p>
+<h1 id="2-垂直居中"><a href="#2-垂直居中" class="headerlink" title="2.垂直居中"></a>2.垂直居中</h1><p>##实现垂直居中只介绍比较简单的3种方法，毕竟本人只是菜鸟一枚(TmT)</p>
+<p>##2.1 设置行高与元素高度一致(只适用于1行内容)<br><code>div{</code><br>    <code>width:300px;</code><br>    <code>height:300px;</code><br>    <code>line-height:300px;</code><br>    <code>border: 1px solid black;</code><br><code>}</code></p>
+<p>##2.2 根据高度控制内边距<br><code>div{</code><br>    <code>width:300px;</code><br>    <code>height:300px;</code><br>    <code>padding-top:140px; //这里大家可自行更改数值使之居中</code><br>    <code>border: 1px solid black;</code><br><code>}</code></p>
+<p>##2.3 css动画实现（将内容放入p标签中）<br><code>div{</code><br>    <code>position: relative;</code><br>    <code>width: 300px;</code><br>    <code>height: 300px;</code><br>    <code>border: 1px solid red;</code></p>
+<p><code>}</code><br><code>p{</code><br>   <code>position: absolute;</code><br>   <code>width: 150px;</code><br>   <code>top: 50%;</code><br>   <code>left:50%;</code><br>   <code>transform: translate(-50%,-50%);</code><br>   <code>border: 1px solid black;</code><br> }</p>
 
       
     </main>
@@ -160,7 +160,7 @@
   
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -183,7 +183,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">10</a></div>
+      <div><a href="/archives/">11</a></div>
     </div>
     
     
