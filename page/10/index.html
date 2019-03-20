@@ -110,7 +110,7 @@
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/jquery轮播图/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/23/3D轮播图/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Lxs">
         <meta itemprop="description" content="">
@@ -122,12 +122,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/01/22/jquery轮播图/" itemprop="url">利用Jquery实现轮播图</a>
+        <a class="post-title-link post-title-link-external" href="/2019/01/23/3D轮播图/" itemprop="url">利用三维变换实现轮播图</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-22T19:12:28+08:00">2019-01-22 19:12:28</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-23T21:59:08+08:00">2019-01-23 21:59:08</time></span>
         </span>
         
         
@@ -136,7 +136,7 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/jquery/" itemprop="url" rel="index"><span itemprop="name">jquery</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/HTML5/" itemprop="url" rel="index"><span itemprop="name">HTML5</span></a></span>
         </span>
         
         
@@ -144,119 +144,143 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <p>同样先说一下整体思路：<code>Jquery</code>实现轮播图时，是所有图片叠放在一个位置，轮播时当前的图片显示，其他图片隐藏，这样做的一个好处就是在网页布局时，轮播图的位置只占一小块，不会影响其他布局（<code>js</code>原生代码实现时会占据所有图片的空间）</p>
-<h1 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h1><p><code>&lt;div class=&quot;slider&quot;&gt;</code><br>  <code>&lt;ul&gt;</code><br>  <code>&lt;li&gt;&lt;img src=&quot;images/1.jpg&quot; width=&quot;500px&quot; height=&#39;200px&#39;&gt;&lt;/li&gt;</code><br>  <code>&lt;li&gt;&lt;img src=&quot;images/2.jpg&quot; width=&quot;500px&quot; height=&#39;200px&#39;&gt;&lt;/li&gt;</code><br>  <code>&lt;li&gt;&lt;img src=&quot;images/3.jpg&quot; width=&quot;500px&quot; height=&#39;200px&#39;&gt;&lt;/li&gt;</code><br>  <code>&lt;li&gt;&lt;img src=&quot;images/4.jpg&quot; width=&quot;500px&quot; height=&#39;200px&#39;&gt;&lt;/li&gt;</code><br> <code>&lt;/ul&gt;</code></p>
-<p>  <code>&lt;ol&gt;</code><br>    <code>&lt;li&gt;&lt;/li&gt;</code><br>    <code>&lt;li&gt;&lt;/li&gt;</code><br>    <code>&lt;li&gt;&lt;/li&gt;</code><br>    <code>&lt;li&gt;&lt;/li&gt;</code><br>  <code>&lt;/ol&gt;</code><br>  <code>&lt;!--箭头--&gt;</code><br>  <code>&lt;div class=&quot;arrow&quot;&gt;</code><br>    <code>&lt;span class=&quot;arrow-left&quot;&gt;&amp;lt;&lt;/span&gt;</code><br>    <code>&lt;span class=&quot;arrow-right&quot;&gt;&amp;gt;&lt;/span&gt;</code><br>  <code>&lt;/div&gt;</code><br><code>&lt;/div&gt;</code></p>
-<h1 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h1><p> <code>* {</code><br>     <code>margin: 0;</code><br>     <code>padding: 0;</code><br>      <code>list-style: none;</code><br>    <code>}</code></p>
-<pre><code>.slider {
-  height: 200px;
-  width: 500px;
-  margin: 100px auto;
-  position: relative;
+      <p>同样再说一下整体思路：<code>HTML5</code>实现轮播图时，是所有图片叠放在一个位置，然后通过平移和旋转，形成立方体的4个面，通过旋转立方体实现图片轮播，这里主要熟悉三维变换，缺点就是只能轮播4个图片。</p>
+<h1 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h1><p><code>&lt;div class=&quot;view&quot;&gt;</code><br>   <code>&lt;ul&gt;</code><br>        <code>&lt;!--一个li就是一个结构块,包括4个面--&gt;</code><br>        <code>&lt;li&gt;</code><br>           <code>&lt;!--每一个span是这个结构块中的某一个面，用来显示图片--&gt;</code><br>            <code>&lt;span&gt;&lt;/span&gt;</code><br>            <code>&lt;span&gt;&lt;/span&gt;</code><br>            <code>&lt;span&gt;&lt;/span&gt;</code><br>            <code>&lt;span&gt;&lt;/span&gt;</code><br>        <code>&lt;/li&gt;</code><br>    <code>&lt;/ul&gt;</code><br>    <code>&lt;div class=&quot;arrow&quot;&gt;</code><br>    <code>&lt;a class=&quot;pre&quot;&gt;&amp;lt;&lt;/a&gt;</code><br>    <code>&lt;a class=&quot;next&quot;&gt;&amp;gt;&lt;/a&gt;</code><br><code>&lt;/div&gt;</code><br><code>&lt;/div&gt;</code></p>
+<h2 id="这里我只用了一个结构块，可以看到我们所见的图片轮播，也可以用多个结构块实现切割轮播"><a href="#这里我只用了一个结构块，可以看到我们所见的图片轮播，也可以用多个结构块实现切割轮播" class="headerlink" title="这里我只用了一个结构块，可以看到我们所见的图片轮播，也可以用多个结构块实现切割轮播"></a>这里我只用了一个结构块，可以看到我们所见的图片轮播，也可以用多个结构块实现切割轮播</h2><h1 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h1><pre><code>*{
+    padding: 0;
+    margin: 0;
 }
-
-.slider ul li {
-  position: absolute;
-  display: none;
+.view{
+    width: 560px;
+    height: 300px;
+    margin:100px auto;
+    position: relative;
 }
-
-.slider ul li:first-child {
-  display: block;
+ul{
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    /*transform: rotate3d(1,1,0,-30deg); 旋转才能看到立方体*/
+    transform-style: preserve-3d;
 }
-.slider ol {
-  position: absolute;
-  left: 200px;
-  bottom: 10px;
+ul &gt; li{
+    width: 100%;
+    height: 100%;
+    float: left;
+    position: relative;
+    transform-style: preserve-3d;
+    /*添加过渡效果*/
+    transition: transform 0.5s;
 }
-
-.slider ol li {
-  float: left;
-  width: 10px;
-  height: 10px;
-  border-radius:50%;
-  background-color:#fff;
-  border: 1px solid #ccc;
-  margin-left: 10px;
-  cursor: pointer;
-} 
-
-
-.arrow {
-  display: none;
+ul &gt; li &gt; span{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
-
-.slider:hover .arrow {
-  display: block;
+ul &gt; li &gt; span:nth-of-type(1) {
+    background: url(&quot;&quot;);
+    /*往z轴正方向偏移*/
+    transform: translateZ(150px);
 }
-
-.arrow-left,
-.arrow-right {
-  font-family: &quot;SimSun&quot;, &quot;宋体&quot;;
-  width: 30px;
-  height: 60px;
-  background-color: rgba(0, 0, 0, 0.1);
-  position: absolute;
-  top: 50%;
-  margin-top: -30px;
-  cursor: pointer;
-  text-align: center;
-  line-height: 60px;
-  color: #fff;
-  font-weight: 700;
-  font-size: 30px;
+ul &gt; li &gt; span:nth-of-type(2){
+    background: url(&quot;&quot;);
+    transform: translateY(-150px) rotateX(90deg);
 }
-
-.arrow-left:hover,
-.arrow-right:hover {
-  background-color: rgba(0, 0, 0, .5);
+ul &gt; li &gt; span:nth-of-type(3){
+    background: url(&quot;&quot;);
+    transform: translateZ(-150px) rotateX(180deg);
 }
-
-.arrow-left {
-  left: 0;
+ul &gt; li &gt; span:nth-of-type(4){
+    background: url(&quot;&quot;);
+    transform: translateY(150px) rotateX(-90deg);
 }
-
-.arrow-right {
-  right: 0;
+.pre,.next{
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height:60px;
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    transform: translate(0,-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
 }
-</code></pre><h1 id="Jquery代码"><a href="#Jquery代码" class="headerlink" title="Jquery代码"></a>Jquery代码</h1><h2 id="1-自动播放"><a href="#1-自动播放" class="headerlink" title="1 自动播放"></a>1 自动播放</h2><p> <code>var index=0;</code><br>    <code>$(&#39;ol li&#39;).eq(index).css({&#39;background&#39;:&#39;red&#39;}).siblings(&#39;li&#39;).css({&#39;background&#39;:&#39;#fff&#39;});</code><br>    <code>var timeId=setInterval(play,3000);</code></p>
-<pre><code>function play(){
-    index++;
-    if(index==$(&apos;ul li&apos;).length){
-        index=0;
+.arrow{
+    width:560px;
+    height:50px;
+    display: none;
 }
-
-  $(&apos;ul li&apos;).eq(index).fadeIn().siblings(&apos;ul li&apos;).fadeOut();
-  $(&apos;ol li&apos;).eq(index).css({&apos;background&apos;:&apos;red&apos;}).siblings(&apos;li&apos;).css({&apos;background&apos;:&apos;#fff&apos;});
-        }
-</code></pre><h2 id="2-左右箭头"><a href="#2-左右箭头" class="headerlink" title="2 左右箭头"></a>2 左右箭头</h2><pre><code>var count = 0;
-
-$(&quot;.arrow-right&quot;).click(function () {
-  count++;
-  if(count == $(&quot;ul li&quot;).length){
-    count = 0;
-  }
-  //让count渐渐的显示，其他兄弟渐渐的隐藏
-  $(&quot;ul li&quot;).eq(count).fadeIn().siblings(&quot;li&quot;).fadeOut();
-  $(&apos;ol li&apos;).eq(count).css({&apos;background&apos;:&apos;red&apos;}).siblings(&apos;li&apos;).css({&apos;background&apos;:&apos;#fff&apos;});
+.view:hover .arrow{
+    display: block;
+}
+.pre:hover,
+.next:hover {
+    cursor: pointer;
+}
+.pre{
+    left: 0;
+}
+.next{
+    right: 0;
+}
+</code></pre><h2 id="用css3代码可以实现元素的移动和旋转，好处就是可以代替一部分js代码，所以这里的css代码多了点"><a href="#用css3代码可以实现元素的移动和旋转，好处就是可以代替一部分js代码，所以这里的css代码多了点" class="headerlink" title="用css3代码可以实现元素的移动和旋转，好处就是可以代替一部分js代码，所以这里的css代码多了点"></a>用<code>css3</code>代码可以实现元素的移动和旋转，好处就是可以代替一部分<code>js</code>代码，所以这里的<code>css</code>代码多了点</h2><h1 id="Jquery代码"><a href="#Jquery代码" class="headerlink" title="Jquery代码"></a>Jquery代码</h1><h2 id="1-自动播放"><a href="#1-自动播放" class="headerlink" title="1 自动播放"></a>1 自动播放</h2><p> <code>var timeId=setInterval(play,3000);</code><br>       <code>var count=0;</code><br>        <code>function play(){</code><br>        <code>count++;</code></p>
+<pre><code>     $(&quot;li&quot;).each(function(key,value){ //0 1 2 3 4
+              /*通过添加transform样式进行旋转*/
+              $(this).css({
+                  &quot;transform&quot;:&quot;rotateX(&quot;+(-count*90)+&quot;deg)&quot;
+              });
+          }); 
+}
+</code></pre><h2 id="2-左右箭头"><a href="#2-左右箭头" class="headerlink" title="2 左右箭头"></a>2 左右箭头</h2><pre><code>/*定义图片索引*/
+var index=0;
+/*添加节流阀 */
+var flag=true;
+/*下一张*/
+$(&quot;.next&quot;).on(&quot;click&quot;,function(){
+    if(flag==true){
+        /*设置节流阀*/
+        flag=false;
+        index--;
+        /*所谓下一张，就是将所有li元素围绕x旋转*/
+        $(&quot;li&quot;).each(function(key,value){ //0 1 2 3 4
+            /*通过添加transform样式进行旋转*/
+            $(this).css({
+                &quot;transform&quot;:&quot;rotateX(&quot;+(index*90)+&quot;deg)&quot;
+            });
+        });
+        setTimeout(function(){
+            flag=true;
+        },1000);//延迟1秒用户才能再次点击，防止用户多次点击
+    }
 });
 
-$(&quot;.arrow-left&quot;).click(function () {
-  count--;
-
-  if(count == -1){
-    count = $(&quot;ul li&quot;).length - 1;
-  }
-  //让count渐渐的显示，其他兄弟渐渐的隐藏
-  $(&quot;ul li&quot;).eq(count).fadeIn().siblings(&quot;li&quot;).fadeOut();
-  $(&apos;ol li&apos;).eq(count).css({&apos;background&apos;:&apos;red&apos;}).siblings(&apos;li&apos;).css({&apos;background&apos;:&apos;#fff&apos;});
+/*上一张*/
+$(&quot;.pre&quot;).on(&quot;click&quot;,function(){
+    if(flag==true){
+        /*设置节流阀*/
+        flag=false;
+        index++;
+        /*所谓下一张，就是将所有li元素围绕x旋转*/
+        $(&quot;li&quot;).each(function(key,value){ //0 1 2 3 4
+            /*通过添加transform样式进行旋转*/
+            $(this).css({
+                &quot;transform&quot;:&quot;rotateX(&quot;+(index*90)+&quot;deg)&quot;
+            });
+        });
+        setTimeout(function(){
+            flag=true;
+        },1000);
+    }
+});
+</code></pre><h2 id="3-进入元素停止定时器，离开开启"><a href="#3-进入元素停止定时器，离开开启" class="headerlink" title="3 进入元素停止定时器，离开开启"></a>3 进入元素停止定时器，离开开启</h2><pre><code>$(&apos;.view&apos;).hover(function(){
+  clearInterval(timeId);
+},function(){
+   timeId=setInterval(play,3000);
 })
-</code></pre><h2 id="3-进入元素停止定时器，离开开启"><a href="#3-进入元素停止定时器，离开开启" class="headerlink" title="3 进入元素停止定时器，离开开启"></a>3 进入元素停止定时器，离开开启</h2><pre><code>$(&apos;.slider&apos;).hover(function(){
-      clearInterval(timeId);
-    },function(){
-       timeId=setInterval(play,3000);
-    })
-</code></pre><p>使用<code>Jquery</code>的好处就是<code>Jquery</code>帮我们封装好了一些函数，可以直接使用，不像<code>js</code>得自己封装，但个中原理都是一样的。</p>
-
+</code></pre>
       
     </main>
     <footer class="post-footer">
@@ -266,7 +290,7 @@ $(&quot;.arrow-left&quot;).click(function () {
   
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/11/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/11/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -289,7 +313,7 @@ $(&quot;.arrow-left&quot;).click(function () {
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">12</a></div>
+      <div><a href="/archives/">13</a></div>
     </div>
     
     
