@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>跳台阶和变态跳台阶</title>
+      <link href="/2019/03/26/%E8%B7%B3%E5%8F%B0%E9%98%B6/"/>
+      <url>/2019/03/26/%E8%B7%B3%E5%8F%B0%E9%98%B6/</url>
+      
+        <content type="html"><![CDATA[<p>1.普通跳台阶:假设有N阶台阶,每次只能跳1阶或2阶,问跳上N阶台阶有多少种跳法?<br>先上代码,再分析思路<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined">function jump(n)&#123;<br>     if(n==1) return 1<br>     if(n==2) return 2<br>   /*   if(n==3) return a(1)+a(2)+1 //4<br>     if(n==4) return a(1)+a(2)+a(3)+1 //8 */<br>     return 2*a(n-1)<br> &#125;<br></code></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JS </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>长度为N的数组找出和为M的数组元素组合</title>
       <link href="/2019/03/20/%E9%95%BF%E5%BA%A6%E4%B8%BAN%E7%9A%84%E6%95%B0%E7%BB%84%E6%89%BE%E5%87%BA%E5%92%8C%E4%B8%BAM%E7%9A%84%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%BB%84%E5%90%88/"/>
       <url>/2019/03/20/%E9%95%BF%E5%BA%A6%E4%B8%BAN%E7%9A%84%E6%95%B0%E7%BB%84%E6%89%BE%E5%87%BA%E5%92%8C%E4%B8%BAM%E7%9A%84%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%BB%84%E5%90%88/</url>

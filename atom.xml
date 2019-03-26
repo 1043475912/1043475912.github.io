@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-20T07:04:12.003Z</updated>
+  <updated>2019-03-26T03:06:31.416Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>跳台阶和变态跳台阶</title>
+    <link href="http://yoursite.com/2019/03/26/%E8%B7%B3%E5%8F%B0%E9%98%B6/"/>
+    <id>http://yoursite.com/2019/03/26/跳台阶/</id>
+    <published>2019-03-26T03:03:08.997Z</published>
+    <updated>2019-03-26T03:06:31.416Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.普通跳台阶:假设有N阶台阶,每次只能跳1阶或2阶,问跳上N阶台阶有多少种跳法?<br>先上代码,再分析思路<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined">function jump(n)&#123;<br>     if(n==1) return 1<br>     if(n==2) return 2<br>   /*   if(n==3) return a(1)+a(2)+1 //4<br>     if(n==4) return a(1)+a(2)+a(3)+1 //8 */<br>     return 2*a(n-1)<br> &#125;<br></code></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1.普通跳台阶:假设有N阶台阶,每次只能跳1阶或2阶,问跳上N阶台阶有多少种跳法?&lt;br&gt;先上代码,再分析思路&lt;br&gt;&lt;figure class=&quot;hljs highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span 
+      
+    
+    </summary>
+    
+      <category term="JS" scheme="http://yoursite.com/categories/JS/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>长度为N的数组找出和为M的数组元素组合</title>
