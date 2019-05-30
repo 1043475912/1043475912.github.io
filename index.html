@@ -136,7 +136,7 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/简单算法/" itemprop="url" rel="index"><span itemprop="name">简单算法</span></a></span>
         </span>
         
         
@@ -144,7 +144,10 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <p>1.普通跳台阶:假设有N阶台阶,每次只能跳1阶或2阶,问跳上N阶台阶有多少种跳法?<br>先上代码,再分析思路<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined">function jump(n)&#123;<br>     if(n==1) return 1<br>     if(n==2) return 2<br>   /*   if(n==3) return a(1)+a(2)+1 //4<br>     if(n==4) return a(1)+a(2)+a(3)+1 //8 */<br>     return 2*a(n-1)<br> &#125;<br></code></pre></td></tr></table></figure></p>
+      <h3 id="1-普通跳台阶-假设有N阶台阶-每次只能跳1阶或2阶-问跳上N阶台阶有多少种跳法"><a href="#1-普通跳台阶-假设有N阶台阶-每次只能跳1阶或2阶-问跳上N阶台阶有多少种跳法" class="headerlink" title="1.普通跳台阶:假设有N阶台阶,每次只能跳1阶或2阶,问跳上N阶台阶有多少种跳法?"></a>1.普通跳台阶:假设有N阶台阶,每次只能跳1阶或2阶,问跳上N阶台阶有多少种跳法?</h3><p>先上代码,再分析思路<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">function jump(n)&#123;<br>     if(n==1) return 1<br>     if(n==2) return 2<br>     return jump(n-1)+jump(n-2)<br> &#125;<br></code></pre></td></tr></table></figure></p>
+<p>从代码可以看出,就是一个普通的递归而已.如果我们去找规律的话,就会发现是一个斐波那契数列.但这种方法只能看到部分,后续就未必正确了.<br>正确思路是:假设跳N阶台阶,那只能是跳N-1阶再跳1阶,或者最后跳N-2阶再跳2阶,所以<br><code>jump(n)=jump(n-1)+jump(n-2)</code></p>
+<h3 id="2-变态跳台阶-假设有N阶台阶-每次可以跳1阶-2阶-3阶…-n阶-问跳上N阶台阶有多少种跳法"><a href="#2-变态跳台阶-假设有N阶台阶-每次可以跳1阶-2阶-3阶…-n阶-问跳上N阶台阶有多少种跳法" class="headerlink" title="2.变态跳台阶:假设有N阶台阶,每次可以跳1阶,2阶,3阶….n阶.问跳上N阶台阶有多少种跳法?"></a>2.变态跳台阶:假设有N阶台阶,每次可以跳1阶,2阶,3阶….n阶.问跳上N阶台阶有多少种跳法?</h3><p>依然先看代码,再分析思路<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">function jump(n)&#123;<br>     if(n==1) return 1<br>     return 2*jump(n-1)<br> &#125;<br></code></pre></td></tr></table></figure></p>
+<p>变态跳台阶和跳台阶区别就是每次跳的步数是随机的,则跳N阶台阶可以最后跳1阶,2阶,…N阶.所以<br><code>jump(n)=jump(n-1)+jump(n-2)+....+jump(1)+1,</code><br>这里的1是指依次跳完所有台阶.而由递推可以得到<br><code>jump(n-1)=jump(n-2)+jump(n-3)+....+jump(1)+1</code><br>所以<br><code>jump(n)=2*jump(n-1)</code></p>
 
       
     </main>
@@ -187,7 +190,7 @@
     
     <div class="categories-count">
       <div class="site-count-title">分类</div>
-      <div><a href="/categories/">4</a></div>
+      <div><a href="/categories/">5</a></div>
     </div>
     
     
