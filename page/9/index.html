@@ -110,7 +110,7 @@
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/算法/数组去重/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/CSS/css实现几何图形/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Lxs">
         <meta itemprop="description" content="">
@@ -122,12 +122,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/02/21/算法/数组去重/" itemprop="url">数组去重</a>
+        <a class="post-title-link post-title-link-external" href="/2019/02/21/CSS/css实现几何图形/" itemprop="url">用CSS实现各种几何图形</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-21T19:26:00+08:00">2019-02-21 19:26:00</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-21T20:16:50+08:00">2019-02-21 20:16:50</time></span>
         </span>
         
         
@@ -136,7 +136,7 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/简单算法/" itemprop="url" rel="index"><span itemprop="name">简单算法</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a></span>
         </span>
         
         
@@ -144,9 +144,12 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <h1 id="这里采用ES6中新引入的数据结构Set进行去重，简单又实用"><a href="#这里采用ES6中新引入的数据结构Set进行去重，简单又实用" class="headerlink" title="这里采用ES6中新引入的数据结构Set进行去重，简单又实用"></a>这里采用ES6中新引入的数据结构Set进行去重，简单又实用</h1><p><code>var arr=[&#39;a&#39;,&#39;a&#39;,1,1,NaN,NaN,{},{},[],[]];</code><br><code>var set1=new Set(arr);</code><br><code>var arr1=Array.from(set1)</code></p>
-<h2 id="数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。所以要使用es6中的isNaN方法将去掉的NaN重新加上"><a href="#数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。所以要使用es6中的isNaN方法将去掉的NaN重新加上" class="headerlink" title="!!! 数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。所以要使用es6中的isNaN方法将去掉的NaN重新加上"></a>!!! 数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。所以要使用es6中的isNaN方法将去掉的NaN重新加上</h2><p><code>var flag=0;</code><br><code>for(i=0;i&lt;arr.length;i++){</code><br>   &emsp;<code>if(Number.isNaN(arr[i])==true){</code><br>   &emsp;&emsp;&emsp;&emsp;<code>flag++;</code><br><code>}</code><br>&emsp;<code>}</code></p>
-<h2 id="此时可以判断出原数组有多少个NaN，再加入arr1中即可"><a href="#此时可以判断出原数组有多少个NaN，再加入arr1中即可" class="headerlink" title="此时可以判断出原数组有多少个NaN，再加入arr1中即可"></a>此时可以判断出原数组有多少个NaN，再加入arr1中即可</h2><p><code>if(flag==0||flag==1)</code><br>&emsp;&emsp;<code>console.log(arr1)</code><br><code>else{for(i=1;i&lt;flag;i++){</code><br>&emsp;<code>arr1.push(NaN)}</code><br>&emsp;&emsp;<code>console.log(arr1);}</code></p>
+      <h1 id="1-矩形"><a href="#1-矩形" class="headerlink" title="1.矩形"></a>1.矩形</h1><p>##实现矩形是最简单的，只需设置块元素的宽高和颜色即可<br><code>div{</code><br><code>width:100px;</code><br><code>height:200px;</code><br><code>background-color:blue;</code></p>
+<p><code>}</code></p>
+<h1 id="2-三角形"><a href="#2-三角形" class="headerlink" title="2.三角形"></a>2.三角形</h1><p>##实现三角形只需将元素的宽高和内填充设为0，只剩边框即可<br><code>div{</code><br><code>width:0px;</code><br><code>height:0px;</code><br><code>border-width:5px;</code><br><code>border-style:solid;</code><br><code>border-color:blue red green skyblue</code><br><code>}</code></p>
+<p>##如果只想要1个三角形，将其他3个边框的颜色变成透明(transparent)即可</p>
+<h1 id="3-圆形（椭圆形）"><a href="#3-圆形（椭圆形）" class="headerlink" title="3.圆形（椭圆形）"></a>3.圆形（椭圆形）</h1><p>##实现圆形（椭圆形）只需控制元素的四个角的圆角圆心位置即可<br><code>div{</code><br><code>width:100px;</code><br><code>height:100px;</code><br><code>border-radius:50%/50%;</code><br><code>}</code></p>
+<p>##div为正方形时可画圆，为矩形时可画椭圆。由此也可延伸出画半圆，1/4圆等，比较简单，这里不详述了。</p>
 
       
     </main>
@@ -157,7 +160,7 @@
   
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -180,7 +183,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">12</a></div>
+      <div><a href="/archives/">13</a></div>
     </div>
     
     

@@ -71,7 +71,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>跳台阶和变态跳台阶 | lxs</title>
+    <title>找出数组中每个字母出现的次数及统计出现次数最多的字母 | lxs</title>
   </head>
   <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -109,7 +109,7 @@
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/算法/跳台阶/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/21/算法/去除数组中指定下标的元素/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
        <meta itemprop="name" content="Lxs">
        <meta itemprop="description" content="">
@@ -120,11 +120,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">跳台阶和变态跳台阶</h1>
+      <h1 class="post-title" itemprop="name headline">找出数组中每个字母出现的次数及统计出现次数最多的字母</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-03-26T11:03:08+08:00">2019-03-26 11:03:08</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-21T16:28:09+08:00">2019-06-21 16:28:09</time></span>
         </span>
         
         
@@ -140,10 +140,12 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h3 id="1-普通跳台阶-假设有N阶台阶-每次只能跳1阶或2阶-问跳上N阶台阶有多少种跳法"><a href="#1-普通跳台阶-假设有N阶台阶-每次只能跳1阶或2阶-问跳上N阶台阶有多少种跳法" class="headerlink" title="1.普通跳台阶:假设有N阶台阶,每次只能跳1阶或2阶,问跳上N阶台阶有多少种跳法?"></a>1.普通跳台阶:假设有N阶台阶,每次只能跳1阶或2阶,问跳上N阶台阶有多少种跳法?</h3><p>先上代码,再分析思路<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">function jump(n)&#123;<br>     if(n==1) return 1<br>     if(n==2) return 2<br>     return jump(n-1)+jump(n-2)<br> &#125;<br></code></pre></td></tr></table></figure></p>
-<p>从代码可以看出,就是一个普通的递归而已.如果我们去找规律的话,就会发现是一个斐波那契数列.但这种方法只能看到部分,后续就未必正确了.<br>正确思路是:假设跳N阶台阶,那只能是跳N-1阶再跳1阶,或者最后跳N-2阶再跳2阶,所以<br><code>jump(n)=jump(n-1)+jump(n-2)</code></p>
-<h3 id="2-变态跳台阶-假设有N阶台阶-每次可以跳1阶-2阶-3阶…-n阶-问跳上N阶台阶有多少种跳法"><a href="#2-变态跳台阶-假设有N阶台阶-每次可以跳1阶-2阶-3阶…-n阶-问跳上N阶台阶有多少种跳法" class="headerlink" title="2.变态跳台阶:假设有N阶台阶,每次可以跳1阶,2阶,3阶….n阶.问跳上N阶台阶有多少种跳法?"></a>2.变态跳台阶:假设有N阶台阶,每次可以跳1阶,2阶,3阶….n阶.问跳上N阶台阶有多少种跳法?</h3><p>依然先看代码,再分析思路<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">function jump(n)&#123;<br>     if(n==1) return 1<br>     return 2*jump(n-1)<br> &#125;<br></code></pre></td></tr></table></figure></p>
-<p>变态跳台阶和跳台阶区别就是每次跳的步数是随机的,则跳N阶台阶可以最后跳1阶,2阶,…N阶.所以<br><code>jump(n)=jump(n-1)+jump(n-2)+....+jump(1)+1,</code><br>这里的1是指依次跳完所有台阶.而由递推可以得到<br><code>jump(n-1)=jump(n-2)+jump(n-3)+....+jump(1)+1</code><br>所以<br><code>jump(n)=2*jump(n-1)</code></p>
+      <h1 id="这里举例说明如何实现，给定数组arr和要去除下标的数组，如"><a href="#这里举例说明如何实现，给定数组arr和要去除下标的数组，如" class="headerlink" title="这里举例说明如何实现，给定数组arr和要去除下标的数组，如:"></a>这里举例说明如何实现，给定数组arr和要去除下标的数组，如:</h1><p><code>let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],choosed = [3, 5, 6]</code></p>
+<h2 id="去除arr中数组下标为3-5-6-即去除arr中的4-6-7"><a href="#去除arr中数组下标为3-5-6-即去除arr中的4-6-7" class="headerlink" title="去除arr中数组下标为3,5,6,即去除arr中的4,6,7"></a>去除arr中数组下标为3,5,6,即去除arr中的4,6,7</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p><code>for(let i=0;i&lt;choosed.length;i++){</code><br> &emsp;&emsp;<code>arr[choosed[i]]=&#39;&#39;</code><br>         <code>}</code></p>
+<p> <code>for(let i=0;i&lt;arr.length;i++){</code><br> &emsp;&emsp;<code>if(arr[i]==&#39;&#39;){</code><br> &emsp;&emsp;&emsp;<code>arr.splice(i,1);</code><br> &emsp;&emsp;&emsp;<code>i--;</code><br> &emsp;&emsp;<code>}</code><br>         <code>}</code></p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h4><p> 先将数组中指定下标的元素替换成空字符串,然后再用splice方法去除,去除时因为数组长度可变,需要将下标自减1</p>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p><code>for (let i = 0; i &lt; choosed.length; i++) {</code><br>&emsp;&emsp;<code>choosed[i] = choosed[i] - i;</code><br>&emsp;&emsp;<code>arr.splice(choosed[i], 1)</code><br><code>}</code></p>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路:"></a>思路:</h4><p>去除数组元素时,因为数组长度动态变化,则去除元素时去除下标为3的元素时正常去除,去除下标为5的元素时变为去除变化后的数组第5-1个元素,去除下标为6的元素时变为去除变化后的数组第6-2个元素,以此类推,每个choosed元素都应减去choosed数组元素下标值,再用splice方法去除.</p>
 
     </main>
     <footer class="post-footer">
@@ -155,12 +157,10 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
-      <a href="/2019/03/20/算法/长度为N的数组找出和为M的数组元素组合/" rel="next" title="长度为N的数组找出和为M的数组元素组合"><i class="fas fa-angle-left"></i><span class="nav-title">长度为N的数组找出和为M的数组元素组合</span></a>
+      <a href="/2019/03/26/算法/跳台阶/" rel="next" title="跳台阶和变态跳台阶"><i class="fas fa-angle-left"></i><span class="nav-title">跳台阶和变态跳台阶</span></a>
       
     </div>
     <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2019/06/21/算法/去除数组中指定下标的元素/" rel="prev" title="找出数组中每个字母出现的次数及统计出现次数最多的字母"><span class="nav-title">找出数组中每个字母出现的次数及统计出现次数最多的字母</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -216,7 +216,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-普通跳台阶-假设有N阶台阶-每次只能跳1阶或2阶-问跳上N阶台阶有多少种跳法"><span class="toc-text">1.普通跳台阶:假设有N阶台阶,每次只能跳1阶或2阶,问跳上N阶台阶有多少种跳法?</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-变态跳台阶-假设有N阶台阶-每次可以跳1阶-2阶-3阶…-n阶-问跳上N阶台阶有多少种跳法"><span class="toc-text">2.变态跳台阶:假设有N阶台阶,每次可以跳1阶,2阶,3阶….n阶.问跳上N阶台阶有多少种跳法?</span></a></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#这里举例说明如何实现，给定数组arr和要去除下标的数组，如"><span class="toc-text">这里举例说明如何实现，给定数组arr和要去除下标的数组，如:</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#去除arr中数组下标为3-5-6-即去除arr中的4-6-7"><span class="toc-text">去除arr中数组下标为3,5,6,即去除arr中的4,6,7</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#方法1"><span class="toc-text">方法1</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#思路"><span class="toc-text">思路:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#方法2"><span class="toc-text">方法2</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#思路-1"><span class="toc-text">思路:</span></a></li></ol></li></ol></li></ol></li></ol></div>
     </div>
     
     

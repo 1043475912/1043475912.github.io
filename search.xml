@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>找出数组中每个字母出现的次数及统计出现次数最多的字母</title>
+      <link href="/2019/06/21/%E7%AE%97%E6%B3%95/%E5%8E%BB%E9%99%A4%E6%95%B0%E7%BB%84%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%B8%8B%E6%A0%87%E7%9A%84%E5%85%83%E7%B4%A0/"/>
+      <url>/2019/06/21/%E7%AE%97%E6%B3%95/%E5%8E%BB%E9%99%A4%E6%95%B0%E7%BB%84%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%B8%8B%E6%A0%87%E7%9A%84%E5%85%83%E7%B4%A0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="这里举例说明如何实现，给定数组arr和要去除下标的数组，如"><a href="#这里举例说明如何实现，给定数组arr和要去除下标的数组，如" class="headerlink" title="这里举例说明如何实现，给定数组arr和要去除下标的数组，如:"></a>这里举例说明如何实现，给定数组arr和要去除下标的数组，如:</h1><p><code>let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],choosed = [3, 5, 6]</code></p><h2 id="去除arr中数组下标为3-5-6-即去除arr中的4-6-7"><a href="#去除arr中数组下标为3-5-6-即去除arr中的4-6-7" class="headerlink" title="去除arr中数组下标为3,5,6,即去除arr中的4,6,7"></a>去除arr中数组下标为3,5,6,即去除arr中的4,6,7</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p><code>for(let i=0;i&lt;choosed.length;i++){</code><br> &emsp;&emsp;<code>arr[choosed[i]]=&#39;&#39;</code><br>         <code>}</code></p><p> <code>for(let i=0;i&lt;arr.length;i++){</code><br> &emsp;&emsp;<code>if(arr[i]==&#39;&#39;){</code><br> &emsp;&emsp;&emsp;<code>arr.splice(i,1);</code><br> &emsp;&emsp;&emsp;<code>i--;</code><br> &emsp;&emsp;<code>}</code><br>         <code>}</code></p><h4 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h4><p> 先将数组中指定下标的元素替换成空字符串,然后再用splice方法去除,去除时因为数组长度可变,需要将下标自减1</p><h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p><code>for (let i = 0; i &lt; choosed.length; i++) {</code><br>&emsp;&emsp;<code>choosed[i] = choosed[i] - i;</code><br>&emsp;&emsp;<code>arr.splice(choosed[i], 1)</code><br><code>}</code></p><h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路:"></a>思路:</h4><p>去除数组元素时,因为数组长度动态变化,则去除元素时去除下标为3的元素时正常去除,去除下标为5的元素时变为去除变化后的数组第5-1个元素,去除下标为6的元素时变为去除变化后的数组第6-2个元素,以此类推,每个choosed元素都应减去choosed数组元素下标值,再用splice方法去除.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 简单算法 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>跳台阶和变态跳台阶</title>
       <link href="/2019/03/26/%E7%AE%97%E6%B3%95/%E8%B7%B3%E5%8F%B0%E9%98%B6/"/>
       <url>/2019/03/26/%E7%AE%97%E6%B3%95/%E8%B7%B3%E5%8F%B0%E9%98%B6/</url>

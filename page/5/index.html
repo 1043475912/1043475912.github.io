@@ -110,7 +110,7 @@
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/HTML/web存储/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/算法/数组乱序/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Lxs">
         <meta itemprop="description" content="">
@@ -122,12 +122,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/03/11/HTML/web存储/" itemprop="url">web存储两种方式的异同</a>
+        <a class="post-title-link post-title-link-external" href="/2019/03/17/算法/数组乱序/" itemprop="url">数组乱序</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-03-11T13:45:15+08:00">2019-03-11 13:45:15</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-03-17T19:01:29+08:00">2019-03-17 19:01:29</time></span>
         </span>
         
         
@@ -136,7 +136,7 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/HTML5/" itemprop="url" rel="index"><span itemprop="name">HTML5</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/简单算法/" itemprop="url" rel="index"><span itemprop="name">简单算法</span></a></span>
         </span>
         
         
@@ -144,15 +144,9 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <h1 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h1><p>localStorage存储的数据是存储在硬盘上的，能存储20M左右，它可以跨页面访问，但不能跨浏览器访问，生命周期是永久，只能手动清除</p>
-<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p><code>localStorage.setItem(&#39;username&#39;,&#39;Tom&#39;)</code></p>
-<h2 id="获取"><a href="#获取" class="headerlink" title="获取"></a>获取</h2><p><code>localStorage.getItem(&#39;username&#39;)</code></p>
-<h2 id="清除"><a href="#清除" class="headerlink" title="清除"></a>清除</h2><p><code>localStorage.removeItem(&#39;username&#39;)</code></p>
-<h1 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h1><p>sessionStorage是存储在当前页面中的，能存5M左右，不能跨页面更不能跨浏览器访问，生命周期是页面存在的时间，关闭页面清除</p>
-<h2 id="设置-1"><a href="#设置-1" class="headerlink" title="设置"></a>设置</h2><p><code>sessionStorage.setItem(&#39;username&#39;,&#39;Tom&#39;)</code></p>
-<h2 id="获取-1"><a href="#获取-1" class="headerlink" title="获取"></a>获取</h2><p><code>sessionStorage.getItem(&#39;username&#39;)</code></p>
-<h2 id="清除-1"><a href="#清除-1" class="headerlink" title="清除"></a>清除</h2><p><code>sessionStorage.removeItem(&#39;username&#39;)</code></p>
-<h2 id="以上两种存储方式都比cookie存储数据量要大，cookie存储量只有4k左右"><a href="#以上两种存储方式都比cookie存储数据量要大，cookie存储量只有4k左右" class="headerlink" title="以上两种存储方式都比cookie存储数据量要大，cookie存储量只有4k左右"></a>以上两种存储方式都比cookie存储数据量要大，cookie存储量只有4k左右</h2>
+      <h2 id="给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释"><a href="#给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释" class="headerlink" title="给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释"></a>给你一个排好序的数组，如何将数组的顺序打乱？先看代码，再解释</h2><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined">var arr=[1,2,3,4,5,6,7,8,9,10]<br>var arr1=[],flag=arr.length<br>for(i=0;i&lt;flag;i++)&#123;<br>  var a=Math.floor(Math.random()*arr.length)<br>  arr1.push(arr.splice(a,1))<br>&#125;<br>console.log(arr1)<br></code></pre></td></tr></table></figure>
+<p>原来我的思想用数组自带的方法reverse，pop，push，shift，unshift等方法，但那样操作只能每次打乱两个元素，我们可以利用数组长度的可变性和随机数来实现。</p>
+<h1 id="1-我们先抛一个0到数组长度-1之间的随机数，将随机数下标的元素压入一个新数组中，此时数组长度会减1，后面的元素会依次补上空位"><a href="#1-我们先抛一个0到数组长度-1之间的随机数，将随机数下标的元素压入一个新数组中，此时数组长度会减1，后面的元素会依次补上空位" class="headerlink" title="1.我们先抛一个0到数组长度-1之间的随机数，将随机数下标的元素压入一个新数组中，此时数组长度会减1，后面的元素会依次补上空位"></a>1.我们先抛一个0到数组长度-1之间的随机数，将随机数下标的元素压入一个新数组中，此时数组长度会减1，后面的元素会依次补上空位</h1><h1 id="2-再次调用随机数时，随机数范围会减小，即使取的随机数相同，随机数下标下的数组元素也不相同，调用arr-length次随机数后arr的元素全部乱序压入arr1中"><a href="#2-再次调用随机数时，随机数范围会减小，即使取的随机数相同，随机数下标下的数组元素也不相同，调用arr-length次随机数后arr的元素全部乱序压入arr1中" class="headerlink" title="2.再次调用随机数时，随机数范围会减小，即使取的随机数相同，随机数下标下的数组元素也不相同，调用arr.length次随机数后arr的元素全部乱序压入arr1中"></a>2.再次调用随机数时，随机数范围会减小，即使取的随机数相同，随机数下标下的数组元素也不相同，调用arr.length次随机数后arr的元素全部乱序压入arr1中</h1>
       
     </main>
     <footer class="post-footer">
@@ -162,7 +156,7 @@
   
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -185,7 +179,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">12</a></div>
+      <div><a href="/archives/">13</a></div>
     </div>
     
     
