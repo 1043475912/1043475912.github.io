@@ -140,9 +140,8 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h1 id="这里采用ES6中新引入的数据结构Set进行去重，简单又实用"><a href="#这里采用ES6中新引入的数据结构Set进行去重，简单又实用" class="headerlink" title="这里采用ES6中新引入的数据结构Set进行去重，简单又实用"></a>这里采用ES6中新引入的数据结构Set进行去重，简单又实用</h1><p><code>var arr=[&#39;a&#39;,&#39;a&#39;,1,1,NaN,NaN,{},{},[],[]];</code><br><code>var set1=new Set(arr);</code><br><code>var arr1=Array.from(set1)</code></p>
-<h2 id="数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。所以要使用es6中的isNaN方法将去掉的NaN重新加上"><a href="#数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。所以要使用es6中的isNaN方法将去掉的NaN重新加上" class="headerlink" title="!!! 数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。所以要使用es6中的isNaN方法将去掉的NaN重新加上"></a>!!! 数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。所以要使用es6中的isNaN方法将去掉的NaN重新加上</h2><p><code>var flag=0;</code><br><code>for(i=0;i&lt;arr.length;i++){</code><br>   &emsp;<code>if(Number.isNaN(arr[i])==true){</code><br>   &emsp;&emsp;&emsp;&emsp;<code>flag++;</code><br><code>}</code><br>&emsp;<code>}</code></p>
-<h2 id="此时可以判断出原数组有多少个NaN，再加入arr1中即可"><a href="#此时可以判断出原数组有多少个NaN，再加入arr1中即可" class="headerlink" title="此时可以判断出原数组有多少个NaN，再加入arr1中即可"></a>此时可以判断出原数组有多少个NaN，再加入arr1中即可</h2><p><code>if(flag==0||flag==1)</code><br>&emsp;&emsp;<code>console.log(arr1)</code><br><code>else{for(i=1;i&lt;flag;i++){</code><br>&emsp;<code>arr1.push(NaN)}</code><br>&emsp;&emsp;<code>console.log(arr1);}</code></p>
+      <h1 id="1-采用ES6中新引入的数据结构Set进行去重"><a href="#1-采用ES6中新引入的数据结构Set进行去重" class="headerlink" title="1.采用ES6中新引入的数据结构Set进行去重"></a>1.采用ES6中新引入的数据结构Set进行去重</h1><p><code>let arr = [1, 2, 3, 2, 2, 3, 4, 3, 4, 5];</code><br><code>console.log(Array.from(new Set(arr)))</code><br>   &emsp;</p>
+<h1 id="2-利用对象属性不相同的性质去重"><a href="#2-利用对象属性不相同的性质去重" class="headerlink" title="2.利用对象属性不相同的性质去重"></a>2.利用对象属性不相同的性质去重</h1><p><code>let arr = [1, 2, 3, 2, 2, 3, 4, 3, 4, 5];</code><br>        <code>let result=[];</code><br>        <code>let obj={};</code><br>        <code>for(let i=0;i&lt;arr.length;i++){</code><br>            <code>if(!obj[arr[i]]){</code><br>                <code>result.push(arr[i]);</code><br>                <code>obj[arr[i]]=arr[i];</code><br>            <code>}</code><br>        <code>}</code><br>        <code>console.log(...result);</code></p>
 
     </main>
     <footer class="post-footer">
@@ -215,7 +214,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#这里采用ES6中新引入的数据结构Set进行去重，简单又实用"><span class="toc-text">这里采用ES6中新引入的数据结构Set进行去重，简单又实用</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。所以要使用es6中的isNaN方法将去掉的NaN重新加上"><span class="toc-text">!!! 数组去重的一个缺陷就是不管用es5还是es6方法，NaN都只能存在一个，但每一个NaN都不相等。所以要使用es6中的isNaN方法将去掉的NaN重新加上</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#此时可以判断出原数组有多少个NaN，再加入arr1中即可"><span class="toc-text">此时可以判断出原数组有多少个NaN，再加入arr1中即可</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#1-采用ES6中新引入的数据结构Set进行去重"><span class="toc-text">1.采用ES6中新引入的数据结构Set进行去重</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#2-利用对象属性不相同的性质去重"><span class="toc-text">2.利用对象属性不相同的性质去重</span></a></li></ol></div>
     </div>
     
     
